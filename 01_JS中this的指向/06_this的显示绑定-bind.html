@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "coderwhy",
+        age: 16,
+      };
+
+      function foo(name, age, height) {
+        console.log("foo函数中的this：", this);
+        console.log(name, age, height);
+      }
+
+      // 通过bind显示绑定this指向对象,返回一个新对象
+      const newFoo = foo.bind(obj, "james", 16, 2.03);
+      newFoo();
+      newFoo();
+      newFoo();
+      newFoo();
+      newFoo();
+      newFoo();
+
+      // const names = ["nba", "cba", "mba"];
+      // names.forEach(
+      //   function (item) {
+      //     console.log(item, this.name);
+      //   },
+      //   { name: "coderqsh" }
+      // );
+    </script>
+  </body>
+</html>

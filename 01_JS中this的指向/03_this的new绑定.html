@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *  使用new关键字来调用函数，内部实现流程
+       *  1、会先创建一个空对象，并且将函数内部的this指向该空对象
+       *  2、然后再执行函数内部的代码
+       *  3、最后返回该对象，且该对象与new的函数同名
+       */
+
+      function foo() {
+        console.log("foo函数中的this：", this);
+        this.name = "coderwhy";
+      }
+
+      // 通过new来调用
+      const newFoo = new foo();
+      console.log(newFoo);
+    </script>
+  </body>
+</html>

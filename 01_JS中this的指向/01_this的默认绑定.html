@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // "use strict";
+      // // 1、默认绑定----指向window对象
+      // function foo() {
+      //   console.log("foo函数的this：", this);
+      // }
+
+      // // 独立调用
+      // foo();
+
+      // // 2、默认绑定----指向window对象
+      // function foo() {
+      //   console.log("foo函数的this：", this);
+      // }
+
+      // const bar = foo;
+      // // 独立调用
+      // bar();
+
+      // 3、严格模式下----指向undefined
+      // function foo() {
+      //   console.log("foo函数的this：", this);
+      // }
+
+      // // 独立调用
+      // foo();
+
+      // 4、默认绑定----指向window对象
+      function test(fn) {
+        fn();
+      }
+
+      test(function foo() {
+        console.log("foo函数的this：", this);
+      });
+    </script>
+  </body>
+</html>

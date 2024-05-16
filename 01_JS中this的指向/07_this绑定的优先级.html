@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const foo = function () {
+        console.log("foo函数中的this：", this);
+      };
+
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        foo: foo,
+      };
+
+      // 1、显式绑定优先级高于隐式绑定
+      obj.foo.apply("显示绑定"); // this指向String包装类
+
+      // 2、new绑定优先级高于隐式绑定
+      new obj.foo(); // this指向空对象
+
+      // 3、new绑定优先级高于显示bind绑定(不能和apply、call一起使用)
+      const newFoo = foo.bind("bind显示绑定");
+      new newFoo(); // this指向空对象
+
+      // 4、bind绑定优先级高于apply、call
+      newFoo.apply("apply显示绑定");
+      newFoo.apply("call显示绑定");
+    </script>
+  </body>
+</html>
