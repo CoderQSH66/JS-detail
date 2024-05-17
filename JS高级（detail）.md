@@ -33,7 +33,7 @@
 - **<font color='red'>再执行函数内部的代码</font>**
 - **<font color='red'>最终返回new出来的新对象（该对象与new的函数同名）</font>**
 
-![image-20240516212120413](.\IMG_MD\image-20240516212120413-1715871229192-5.png)
+![image-20240516212120413](.\IMG_MD\image-20240516212120413.png)
 
 #### 5.this的显式绑定
 
@@ -58,14 +58,6 @@
 - **<font color='red'>bind绑定高于apply、call绑定</font>**
 
 ![image-20240516223640102](.\IMG_MD\image-20240516223640102.png)
-
-
-
-
-
-
-
-
 
 
 
