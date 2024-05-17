@@ -59,9 +59,22 @@
 
 ![image-20240516223640102](.\IMG_MD\image-20240516223640102.png)
 
+#### 7.箭头函数中的this
 
+- **<font color='red'>箭头函数没有自己的this对象</font>**
 
+- **<font color='red'>箭头函数中若要使用this，则会从上层作用域中查找</font>**
+- **箭头函数使用显示绑定无效（this只与上层作用域有关）**
 
+![image-20240517153318838](./IMG_MD/image-20240517153318838.png)
+
+- **<font color='red'>面试题</font>**
+
+![image-20240517175838317](./IMG_MD/image-20240517175838317.png)
+
+<img src="./IMG_MD/image-20240517175850919.png" alt="image-20240517175850919" style="zoom:80%;" />
+
+<img src="./IMG_MD/image-20240517180808175.png" alt="image-20240517180808175" style="zoom:80%;" />
 
 
 
