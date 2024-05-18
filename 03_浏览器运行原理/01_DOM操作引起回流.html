@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: rebeccapurple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <span>这是一个BOX</span>
+    </div>
+    <h2>这是一个h2</h2>
+    <button class="btn">remove</button>
+  </body>
+  <script>
+    const btnEle = document.body.querySelector(".btn");
+    const boxEle = document.body.querySelector(".box");
+    btnEle.addEventListener("click", () => {
+      boxEle.remove();
+    });
+  </script>
+</html>

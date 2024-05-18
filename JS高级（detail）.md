@@ -80,3 +80,237 @@
 
 ####  2.1.浏览器渲染页面的流程
 
+- **<font color='red'>解析一：下载index.html文件，加载解析index.html文件，从而生成DOM树（doucument object model）</font>**
+- **<font color='red'>解析二：下载css、js文件，加载解析css文件时会通过样式规则生成CSSOM树（css object model），这个过程不阻塞DOM树的生成，加载解析js文件时会阻塞DOM树的生成</font>**
+- **<font color='red'>解析三：将CSSOM附加到DOM树上，从而生成Rander渲染树</font>**
+  - **DOM树与Rander树不是一一对应关系，Rander树中只有需要渲染的节点，DOM树上是所有节点（display:none）**
+  - **渲染树上存在节点样式信息，但是<font color='red'>不包括大小、位置信息</font>**
+- **<font color='red'>解析四：通过layout布局来计算需要渲染的节点大小、位置等布局信息</font>**
+- **<font color='red'>解析五：进行painting绘制，从而渲染整个页面</font>**
+
+![](./IMG_MD/image-20231118141938881.png)
+
+#### 2.2.回流
+
+- **浏览器渲染页面的时候，<font color='red'>第一次计算</font>并确定渲染节点的大小、位置信息被称为<font color='red'>layout布局</font>**
+- **<font color='red'>后续再计算</font>并确定渲染节点的大小、位置信息被称为<font color='red'>reflow回流</font>**
+- **<font color='red'>只要重新布局就会引起回流</font>**
+  - **修改DOM树（对DOM节点的修改、删除、更新等操作）**
+  - **修改节点的大小、位置信息（会再次进行布局计算）**
+  - **修改window窗口的resize**
+  - **调用getCompoutedStyle方法**
+
+#### 2.3.重绘
+
+- **重新对Rander树进行绘制就称为<font color='red'>repaint重绘</font>**
+- **回流必定引起重绘，但重绘不一定回流（比如修改节点的颜色等样式）**
+- **开发中尽量避免回流与重绘，会引起性能损耗问题**
+
+#### 2.4.composite合成
+
+- **默认情况下，Rander树中的渲染节点<font color='red'>在标准流中会被绘制到同一个layer图层中</font>**
+- **但是可以通过一些特殊的属性来创建新的合成图层，从而通过GPU进行加速绘制，提高性能**
+- **可以创建新图层的属性**
+  - **<font color='red'>position：fixed</font>**
+  - **<font color='red'>开启transform、opacity动画</font>**
+  - **canvas、iframe、video元素**
+
+![image-20240518184634180](./IMG_MD/image-20240518184634180.png)
+
+#### 2.5.js文件的加载解析
+
+- **浏览器加载解析HTML文档时，会下载并解析其他外部文件，比如css、js文件**
+- **<font color='red'>加载css文件时，不会阻塞DOM树的生成</font>**
+- **<font color='red'>加载js文件时，会阻塞整个DOM树的生成，直到js文件全部加载解析完成</font>**
+- **这样的目的是，防止js文件中的DOM操作引起大量的回流与重绘**
+- **但是如果js文件太大，就会执行时间会变长，所以可以通过<font color='red'>defer、async</font>属性来解决**
+
+#### 2.6.defer与async
+
+- **<font color='red'>defer</font>**
+
+  - **浏览器解析带有defer属性的script元素时，它会告诉浏览器，可以继续生成DOM树**
+  - **<font color='red'>当DOM树生成结束后，在DOMContentLoaded事件触发前，会执行defer中的代码</font>**
+  - **defer按照顺序执行，推荐写在head元素内**
+
+- **<font color='red'>async</font>**
+
+  - **与defer一样，会告诉浏览器，它<font color='red'>不会阻塞DOM树的生成</font>**
+
+  - **<font color='red'>async下载完成后会立即执行里面的代码</font>**
+  - **async不是按照顺序执行的，他是<font color='red'>异步执行</font>的**
+
+### 三.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: rebeccapurple;
+      }
+      .container .box2 {
+        /* 可以开启新图层的操作 */
+        /* position: fixed; */
+        /* transform: translateZ(0); */
+        transition: all 1s ease;
+        margin-top: 50px;
+        width: 200px;
+        height: 200px;
+        background-color: rgb(192, 174, 211);
+      }
+      .container .box2:hover {
+        transform: translateX(200px);
+        opacity: 0.3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box1"></div>
+      <div class="box2"></div>
+    </div>
+  </body>
+</html>
