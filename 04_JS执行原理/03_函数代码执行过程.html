@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var name = "global name";
+      function foo() {
+        console.log(name);
+        var name = "foo name";
+        var message = "foo message";
+      }
+      foo();
+      var message = "global message";
+      var age = 16;
+      var height = 1.88;
+    </script>
+  </body>
+</html>

@@ -1,12 +1,12 @@
 ### 一.JS中this的指向
 
-#### 1.this绑定
+#### 1.1.this绑定
 
 - **<font color='red'>只有函数被执行的那一刻，才会决定函数内部的this所绑定的对象</font>**
 
 - **<font color='red'>函数内部this所绑定的对象只与该函数的调用方式有关</font>**
 
-#### 2.this的默认绑定
+#### 1.2.this的默认绑定
 
 - **<font color='red'>默认绑定</font>：函数独立调用，内部this绑定window对象**
 
@@ -20,13 +20,13 @@
 
 ![image-20240516210307194](./IMG_MD/image-20240516210307194.png)
 
-#### 3.this的隐式绑定
+#### 1.3.this的隐式绑定
 
 - **<font color='red'>隐示绑定</font>：函数通过对象进行调用，this绑定函数发起的对象**
 
 ![image-20240516210848304](./IMG_MD/image-20240516210848304.png)
 
-#### 4.this的new绑定
+#### 1.4.this的new绑定
 
 - **<font color='red'>函数可以当做类来进行new实例构造</font>**
 - **<font color='red'>new的时候会创建一个空对象，并将函数内部的this绑定该对象</font>**
@@ -35,7 +35,7 @@
 
 ![image-20240516212120413](./IMG_MD/image-20240516212120413.png)
 
-#### 5.this的显式绑定
+#### 1.5.this的显式绑定
 
 - **<font color='red'>apply(thisObj, [arg1, arg2, ...])</font>：函数调用时显式的指定this所绑定的对象，第二个参数为传入的参数列表**
 
@@ -49,7 +49,7 @@
 
 ![image-20240516215605259](./IMG_MD/image-20240516215605259.png)
 
-#### 6.this绑定的优先级
+#### 1.6.this绑定的优先级
 
 - **<font color='red'>默认绑定（独立调用）的优先级最低</font>**
 
@@ -59,7 +59,7 @@
 
 ![image-20240516223640102](./IMG_MD/image-20240516223640102.png)
 
-#### 7.箭头函数中的this
+#### 1.7.箭头函数中的this
 
 - **<font color='red'>箭头函数没有自己的this对象</font>**
 
@@ -128,11 +128,10 @@
 #### 2.6.defer与async
 
 - **<font color='red'>defer</font>**
-
   - **浏览器解析带有defer属性的script元素时，它会告诉浏览器，可以继续生成DOM树**
   - **<font color='red'>当DOM树生成结束后，在DOMContentLoaded事件触发前，会执行defer中的代码</font>**
   - **defer按照顺序执行，推荐写在head元素内**
-
+  
 - **<font color='red'>async</font>**
 
   - **与defer一样，会告诉浏览器，它<font color='red'>不会阻塞DOM树的生成</font>**
@@ -140,15 +139,41 @@
   - **<font color='red'>async下载完成后会立即执行里面的代码</font>**
   - **async不是按照顺序执行的，他是<font color='red'>异步执行</font>的**
 
-### 三.
+### 三.JS执行原理
 
+#### 3.1.JS全局代码执行过程
 
+- **<font color='red'>初始化全局对象</font>**
 
+  - **执行全局代码前，会先<font color='red'>在堆内存中创建一个全局对象（Global Object，GO）</font>**
 
+  - **然后<font color='red'>将全局代码中定义的标识符添加到这个GO对象中</font>，初始值为undefined**
+  - **这个全局对象就是<font color='red'>window对象</font>**
 
+- **<font color='red'>创建全局执行上下文</font>**
+  - **全局对象初始化完成后，会<font color='red'>在执行上下文栈中创建一个全局执行上下文（Global Ececution Content）</font>**
+  - **并<font color='red'>关联一个VO对象</font>，针对全局执行上下文这个VO对象就GO对象**
+  - **<font color='red'>将全局代码块中的代码添加到全局执行上下文中</font>**
+- **<font color='red'>执行全局执行上下文中的代码</font>**
 
+![image-20240519204306331](./IMG_MD/image-20240519204306331.png)
 
+#### 3.2.JS函数代码执行过程
 
+- **<font color='red'>创建函数AO对象</font>**
+  - **当全局执行上下文中执行到函数调用时，会<font color='red'>在堆内存中创建一个AO对象（Activation Object，AO）</font>**
+  - **<font color='red'>将函数代码块中定义的标识符添加到AO对象中</font>**
+- **<font color='red'>创建函数执行上下文</font>**
+  - **当堆中AO对象创建完成后，会<font color='red'>在执行上下文栈中创建一个函数执行上下文</font>**
+  - **<font color='red'>并关联一个VO对象，该VO对象就是AO</font>**
+  - **然后将函数代码块中的代码添加到函数执行上下文中**
+- **<font color='red'>执行函数执行上下文中的代码</font>**
+  - **代码执行结束，栈中的函数执行上下文会被<font color='red'>弹出销毁</font>**
+  - **再重新执行栈顶的执行上下文**
+
+![image-20240519202157359](./IMG_MD/image-20240519202157359.png)
+
+#### 3.3.
 
 
 
