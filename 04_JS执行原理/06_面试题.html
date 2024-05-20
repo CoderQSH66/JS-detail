@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 面试题一
+      var n = 100;
+      function foo() {
+        // let n = 300;
+        n = 200;
+      }
+      foo();
+      console.log(n);
+
+      // 面试题二
+      var m = 100;
+      function bar() {
+        console.log(m); // undefined
+        return;
+        var m = 200;
+      }
+      bar();
+
+      // 面试题三
+      function baz() {
+        var a = (b = 100);
+      }
+      baz();
+      console.log(b); // 100，b被添加到window中
+      console.log(a); // 报错
+    </script>
+  </body>
+</html>

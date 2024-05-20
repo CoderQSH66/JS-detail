@@ -173,11 +173,15 @@
 
 ![image-20240519202157359](./IMG_MD/image-20240519202157359.png)
 
-#### 3.3.
+#### 3.3.变量查找作用域链
 
+- **每个执行上下文都关联了一个VO对象，同时也关联了一个<font color='red'>作用域链（scope chain）</font>**
+- **<font color='red'>作用域链是一个列表对象，是在GO或AO对象创建时就已经决定了（Scopes）</font>**
+- **在执行上下文中执行代码查找变量时，<font color='red'>先从当前VO对象中查找，再从作用域链中查找</font>**
 
+![image-20240520174052384](./IMG_MD/image-20240520174052384.png)
 
-
+<img src="./IMG_MD/image-20240520182115002.png" alt="image-20240520182115002" style="zoom:80%;" />
 
 
 
