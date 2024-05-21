@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "coderqsh",
+        age: 16
+      }
+      // 添加数据属性描述
+      Object.defineProperty(obj, "name", {
+        configurable: false, // 不允许删除和再次配置
+        enumerable: false, // 不允许通过for...in遍历，Object.keys获取
+        writable: false, // 不允许修改
+        value: "qsh" // 指定访问的值
+      })
+
+      delete obj.name
+      console.log(obj)
+
+      for (const key in obj) {
+        console.log(key)
+      }
+      obj.name = "123"
+      console.log(obj.name)
+
+      // 添加数据属性描述
+      Object.defineProperty(obj, "address", {})
+      delete obj.address
+      console.log(obj)
+    </script>
+  </body>
+</html>

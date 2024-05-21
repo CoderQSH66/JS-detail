@@ -219,21 +219,32 @@
 
 <img src="./IMG_MD/image-20240521180401917.png" alt="image-20240521180401917" style="zoom:80%;" />
 
--  
+-  **<font color='red'>封装自动柯里化函数</font>**
 
+![image-20240521215145178](./IMG_MD/image-20240521215145178.png)
 
+### 五.对象增强
 
+#### 5.1.数据属性描述符
 
+- **可以通过<font color='red'>Object.defineProperty(obj, prop, config)</font>来描述对象中的属性**
+- **<font color='red'>configurable</font>：是否允许删除**
+- **<font color='red'>enumerable</font>：是否允许通过for...in遍历，Object.keys获取**
+- **<font color='red'>writable</font>：是否允许写入修改**
+- **<font color='red'>value</font>：指定返回值**
 
+<img src="./IMG_MD/image-20240521225523917.png" alt="image-20240521225523917"  />
 
+#### 5.2.存取（访问）属性描述符
 
+- **可以通过<font color='red'>Object.defineProperty(obj, prop, config)</font>监听对象属性的读取和修改**
 
+- **configurable：是否允许删除**
+- **enumerable：是否允许通过for...in遍历，Object.keys获取**
+- **<font color='red'>get</font>：监听访问时触发的函数**
+- **<font color='red'>set</font>：监听赋值时触发的函数**
 
-
-
-
-
-
+![image-20240521230610279](./IMG_MD/image-20240521230610279.png)
 
 
 

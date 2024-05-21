@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 封装自动柯里化函数
+       * 接收：函数
+       * 返回：函数
+       *
+       */
+
+      const foo = (x, y, z) => {
+        console.log(x, y, z);
+      };
+      const bar = (x, y, z) => {
+        return x + y + z;
+      };
+
+      const autoCurryFn = (fn) => {
+        const getFn = (...args) => {
+          if (args.length >= fn.length) {
+            return fn(...args);
+          } else {
+            return (...newArgs) => {
+              return getFn(...args.concat(newArgs));
+            };
+          }
+        };
+        return getFn;
+      };
+      debugger;
+      const curriedFoo = autoCurryFn(foo);
+      curriedFoo(1)(2, 3);
+      const curriedBar = autoCurryFn(bar);
+      console.log(curriedBar(1, 2, 3));
+    </script>
+  </body>
+</html>
