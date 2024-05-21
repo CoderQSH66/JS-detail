@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function bar(a, b, c, ...args) {
+        console.log(arguments);
+        for (const i of arguments) {
+          console.log(i);
+        }
+        console.log([].slice.apply(arguments));
+      }
+      bar(1, 2, 3, 4, 5, 6);
+      console.log(bar.name);
+      console.log(bar.length);
+      const names = ["abc", "cba", "nba"];
+    </script>
+  </body>
+</html>

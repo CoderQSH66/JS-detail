@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 0、普通函数
+      const baz = (x, y, z) => {
+        return x + y + z;
+      };
+
+      // 1、柯里化函数：常规写法
+      const foo = (x) => {
+        return (y) => {
+          return (z) => {
+            return x + y + z;
+          };
+        };
+      };
+      // 2、柯里化函数：箭头函数简写
+      const bar = (x) => (y) => (z) => x + y + z;
+
+      const res1 = foo(10)(20)(30);
+      const res2 = bar(10)(20)(30);
+      console.log(res1);
+      console.log(res2);
+    </script>
+  </body>
+</html>

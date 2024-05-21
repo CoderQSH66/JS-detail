@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function foo(a, b, c, ...args) {
+        console.log(args);
+        // 解构arguments
+        console.log([...arguments]);
+
+        // 数组的from类方法：将类数组对象转化为数组
+        console.log(Array.from(arguments));
+
+        // slice方法
+        console.log(Array.prototype.slice.apply(arguments, [0]));
+        console.log(Array.prototype.slice.apply(arguments));
+      }
+      foo(1, 2, 3, 4, 5, 6);
+      console.log("%O", foo);
+      const names = ["nba", "cba", "mba"];
+    </script>
+  </body>
+</html>

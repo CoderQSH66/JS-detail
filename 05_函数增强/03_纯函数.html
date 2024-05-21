@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const names = ["cba", "nba", "abc", "mba"];
+
+      // 1、slice是一个纯函数
+      const result = names.slice(1, 3);
+      console.log(result);
+
+      // 2、splice不是一个纯函数：修改原数组的值，产生了副作用
+      names.splice(0, 2);
+      console.log(names);
+    </script>
+  </body>
+</html>

@@ -183,29 +183,43 @@
 
 <img src="./IMG_MD/image-20240520182115002.png" alt="image-20240520182115002" style="zoom:80%;" />
 
+### 四.函数增强
 
+#### 4.1.函数对象中的属性
 
+- **<font color='red'>name</font>：函数对象的名称，不可修改**
 
+- **<font color='red'>length</font>：函数可接收的<font color='red'>形参个数，不包含剩余参数</font>，不可修改**
 
+- **<font color='red'>arguments</font>：函数接收的<font color='red'>实参列表</font>，是一个类数组对象（箭头函数没有arguments）**
 
+- **<font color='red'>arguments转数组的方法</font>**
 
+  - **循环push**
+  - **解构**
+  - **数组的from类方法**
+  - **slice显式绑定arguments**
 
+  <img src="./IMG_MD/image-20240521164704419.png" alt="image-20240521164704419" style="zoom:80%;" />
 
+#### 4.2.纯函数（prue）
 
+- **如果一个函数满足以下条件时，这个函数就被称为<font color='red'>纯函数</font>**
 
+- **<font color='red'>函数相同的输入，在任何场景下都具有相同的输出</font>**
+- **<font color='red'>函数的调用不会产生任何副作用</font>（不会影响其他变量）**
 
+<img src="./IMG_MD/image-20240521173144575.png" alt="image-20240521173144575" style="zoom:80%;" />
 
+#### 4.3.柯里化函数（currying）
 
+- **<font color='red'>柯里化</font>：将一个<font color='red'>接收多个参数的函数</font>，转化为<font color='red'>接收一个参数且返回处理剩余参数的函数的新函数</font>过程**
 
+- **该新函数就被称为<font color='red'>柯里化函数</font>**
 
+<img src="./IMG_MD/image-20240521180401917.png" alt="image-20240521180401917" style="zoom:80%;" />
 
-
-
-
-
-
-
-
+-  
 
 
 
