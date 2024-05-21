@@ -6,6 +6,19 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      function areaWidth(width) {
+        function area(height) {
+          debugger;
+          return width * height;
+        }
+        return area;
+      }
+
+      var areaMj = areaWidth(5);
+      console.log(areaMj(10));
+      console.log(areaMj(20));
+      console.log(areaMj(30));
+    </script>
   </body>
 </html>
