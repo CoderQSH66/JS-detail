@@ -262,22 +262,25 @@
 
 #### 6.2.函数对象的原型
 
-- 函数作为一个对象，它也有[[Prototype]]隐式原型对象
-- 除了[[Prototype]]外，函数还存在一个prototype显式原型对象
+- **函数作为一个对象，它也有<font color='red'>[[Prototype]]隐式原型对象</font>**
+- **除了[[Prototype]]外，函数还存在一个<font color='red'>prototype显式原型对象</font>**
 
+- **<font color='red'>当一个函数作为构造函数被new调用时，这个函数的prototype显式原型对象会被赋值给新对象的隐式原型对象</font>**
 
+- **也就是说，可以为构造函数的显式原型对象上添加方法，从而让实例对象共享调用**
 
+![image-20240522223230190](./IMG_MD/image-20240522223230190.png)
 
+#### 6.3.显式原型constructor属性
 
+- **函数的显式原型对象上有一个<font color='red'>constructor</font>属性**
+- **<font color='red'>constructor是一个函数对象，指向原函数</font>**
 
+![image-20240522224726291](./IMG_MD/image-20240522224726291.png)
 
+#### 6.4.原型赋值新对象
 
-
-
-
-
-
-
+![image-20240522232004176](./IMG_MD/image-20240522232004176.png)
 
 
 

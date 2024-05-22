@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person() {}
+
+      const p = new Person()
+      console.log(Person.prototype)
+      console.log(Person.prototype.constructor)
+      console.log(Person === Person.prototype.constructor) // true
+      console.log(Person === p.__proto__.constructor) // true
+    </script>
+  </body>
+</html>
