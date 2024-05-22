@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+      };
+      // Object.defineProperties(obj, {
+      //   name: {
+      //     configurable: false,
+      //     enumerable: false,
+      //     get() {
+      //       console.log(1);
+      //       return "name";
+      //     },
+      //   },
+      //   age: {
+      //     configurable: true,
+      //     set(value) {
+      //       console.log(value);
+      //     },
+      //   },
+      // });
+      // console.log(obj.name);
+      // obj.age = 16;
+      for (const key in obj) {
+        let _value = obj[key];
+        Object.defineProperty(obj, key, {
+          get() {
+            console.log("访问了", key);
+            return _value;
+          },
+          set(value) {
+            console.log("赋值了", key);
+            _value = value;
+          },
+        });
+      }
+      console.log(obj);
+
+      console.log(obj.name);
+      console.log(obj.age);
+      obj.age = 26;
+      console.log(obj.age);
+    </script>
+  </body>
+</html>

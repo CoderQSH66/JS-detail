@@ -246,13 +246,19 @@
 
 ![image-20240521230610279](./IMG_MD/image-20240521230610279.png)
 
+### 六.原型与面向对象
 
+#### 6.1.普通对象的原型
 
+- **对象除了自己定义的属性外，还存在一个<font color='red'>[[Prototype]]属性</font>**
+- **这个[[Prototype]]属性<font color='red'>指向一个对象</font>，这个对象就是<font color='red'>原型对象</font>**
 
+- **当访问对象中的属性时，若自己定义过则直接返回，<font color='red'>若没有定义则在该对象的原型对象上查找并返回</font>**
+- **获取对象原型的方法**
+  - **<font color='red'>obj.__proto\_\_</font>**
+  - **<font color='red'>Object.getPrototypeOf(obj)</font>**
 
-
-
-
+<img src="./IMG_MD/image-20240522181933196.png" alt="image-20240522181933196" style="zoom:80%;" />
 
 
 

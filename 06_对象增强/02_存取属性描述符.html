@@ -9,26 +9,26 @@
     <script>
       const obj = {
         name: "coderqsh",
-        age: 16
-      }
+        age: 16,
+      };
 
       // 存取属性描述：监听对象属性的读取和修改
-      let _name = obj.name
+      let _name = obj.name;
       Object.defineProperty(obj, "name", {
         configurable: false,
         enumerable: true,
         get() {
-          console.log("访问了name属性")
-          return _name
+          console.log("访问了name属性");
+          return _name;
         },
         set(value) {
-          console.log("修改了name属性")
-          _name = value
-        }
-      })
-      console.log(obj.name)
-      obj.name = "qsh"
-      console.log(obj.name)
+          console.log("修改了name属性");
+          _name = value;
+        },
+      });
+      console.log(obj.name);
+      obj.name = "qsh";
+      console.log(obj.name);
     </script>
   </body>
 </html>
