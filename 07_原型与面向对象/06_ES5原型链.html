@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 定义变量
+      const my_name = "coderqsh" // const my_name = new String("coderqsh")
+      const my_obj = {} // const my_obj = new Object()
+
+      // 隐式原型指向包装类的显式原型
+      console.log(my_name.__proto__ === String.prototype)
+      console.log(my_obj.__proto__ === Object.prototype)
+
+      // 原型链
+      my_obj.__proto__ = {}
+      my_obj.__proto__.__proto__ = {}
+      my_obj.__proto__.__proto__.__proto__ = {
+        name: "coder"
+      }
+      console.log(my_obj.name)
+    </script>
+  </body>
+</html>

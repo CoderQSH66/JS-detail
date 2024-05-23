@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、定义父类
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+      }
+
+      // 2、定义子类
+      function Student(name, age, score) {
+        // 借用构造函数实现属性继承
+        Person.call(this, name, age)
+        this.score = score
+      }
+      const s = new Student("coderqsh", 16, 99)
+      console.log(s)
+    </script>
+  </body>
+</html>

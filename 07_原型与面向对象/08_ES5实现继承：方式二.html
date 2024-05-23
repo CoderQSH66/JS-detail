@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、定义父类
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+      }
+      // 2、父类原型添加方法
+      Person.prototype.running = function () {
+        console.log(this.name + "在跑步")
+      }
+      Person.prototype.singing = function () {
+        console.log(this.name + "在唱歌")
+      }
+      // 3、创建父类实例对象
+      const p = new Person("coderqsh")
+      // 4、定义子类
+      function Student() {}
+
+      // 5、子类继承父类：将子类的显式原型指向父类的实例对象
+      Student.prototype = p
+      Student.prototype.swimming = function () {
+        console.log(this.name + "在游泳")
+      }
+
+      const s = new Student()
+      console.log(s.name)
+      s.running()
+      s.singing()
+      s.swimming()
+    </script>
+  </body>
+</html>
