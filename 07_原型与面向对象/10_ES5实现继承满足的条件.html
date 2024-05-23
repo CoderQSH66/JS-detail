@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 实现继承满足的条件：
+       *  创建出一个新对象
+       *  该对象的隐式原型指向父类的显式原型
+       *  子类的显示原型指向该对象
+       */
+      function Person() {}
+      function Student() {}
+
+      // 方案一：初始方法
+      const p = new Person()
+      Student.prototype = p
+
+      // 方案二：手动创建新对象
+      const obj = {}
+      // obj.__proto__ = Person.prototype
+      Object.setPrototypeOf(obj, Person.prototype) // 通用设置对象隐式原型的方法
+      Student.prototype = obj
+
+      // 方案三：使用构造函数(兼容性)
+      function F() {}
+      F.prototype = Person.prototype
+      Student.prototype = new F()
+
+      // 方案四：使用原生创建对象并指定隐式原型的方法
+      const obj1 = Object.create(Person.prototype)
+      Student.prototype = obj1
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getObj(superClass) {
+        function F() {}
+        F.prototype = superClass.prototype
+        return new F()
+      }
+
+      function inherit(subClass, superClass) {
+        subClass.prototype = getObj(superClass)
+        Object.defineProperty(subClass.prototype, "constructor", {
+          value: subClass
+        })
+      }
+
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+      }
+      function Student(name, age, score) {
+        Person.call(this, name, age)
+        this.score = score
+      }
+      Person.prototype.runing = function () {
+        console.log("runing")
+      }
+      inherit(Student, Person)
+      Student.prototype.singing = function () {
+        console.log("singing")
+      }
+
+      const s = new Student("coderqsh", 16, 99)
+      console.log(s)
+      s.runing()
+      s.singing()
+    </script>
+  </body>
+</html>

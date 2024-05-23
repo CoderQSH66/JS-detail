@@ -246,6 +246,15 @@
 
 ![image-20240521230610279](./IMG_MD/image-20240521230610279.png)
 
+#### 5.3.对象常用方法
+
+- **<font color='red'>Object.getProptypeOf(obj)</font>：获取对象的隐式原型对象**
+- **Object.setProptypeOf(obj, proto)：为对象设置隐式原型**
+- **Object.create(proto)：创建一个对象，并指定它的隐式原型对象**
+- **<font color='red'>obj.hasOwnProperty(property)</font>：判断对象是否拥有该属性**
+- **<font color='red'>property in obj</font>：判断该属性是否存在对象或对象的原型上**
+- **<font color='red'>instance instanceof class</font>：判断对象是否为类的实例**
+
 ### 六.原型与面向对象
 
 #### 6.1.普通对象的原型
@@ -316,13 +325,18 @@
 
 <img src="./IMG_MD/image-20240523155157553.png" alt="image-20240523155157553" style="zoom:80%;" />
 
-#### 6.7.
+#### 6.7.寄生组合式继承
 
+- **实现继承满足的条件**
+  - **<font color='red'>创建出一个对象</font>**
+  - **<font color='red'>该对象的[[Prototype]]隐式原型指向父类的prototype显式原型</font>**
+  - **<font color='red'>子类的prototype显式原型指向该对象</font>**
 
+<img src="./IMG_MD/image-20240523213603777.png" alt="image-20240523213603777" style="zoom:80%;" />
 
+- **封装实现继承的寄生组合方法**
 
-
-
+![image-20240523215303504](./IMG_MD/image-20240523215303504.png)
 
 
 
