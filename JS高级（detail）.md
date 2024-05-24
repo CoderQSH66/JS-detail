@@ -375,13 +375,15 @@
 
 <img src="./IMG_MD/image-20240524171503522.png" alt="image-20240524171503522" style="zoom:80%;" />
 
+#### 7.5.解构语法
 
+- **<font color='red'>数组的解构</font>：必须按照顺序来进行解构，可以赋缺省值**
 
+![image-20240524213034535](./IMG_MD/image-20240524213034535.png)
 
+- **<font color='red'>对象的解构</font>：<font color='red'>按照key值进行解构</font>，可以起别名、赋缺省值**
 
-
-
-
+![image-20240524213508154](./IMG_MD/image-20240524213508154.png)
 
 
 

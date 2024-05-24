@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const names = ["james", "curry", "kyire", "durant", "kobe"]
+      // 1、数组解构基本用法
+      const [a, b, c, , e] = names
+      console.log(a, b, c, e) // james curry kyire kobe
+
+      // 2、解构缺省值：若没有则使用缺省值
+      const [A, B = "coderqsh", C, D, E] = names // james curry kyire durant kobe
+      console.log(A, B, C, D, E)
+
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        height: 1.88,
+        address: "深圳"
+      }
+
+      // 1、对象解构基本用法
+      var { name, age, height, address } = obj
+      console.log(name, age, height, address)
+
+      // 2、赋缺省值
+      var { name, age, info = "详情" } = obj
+      console.log(name, age, info)
+
+      // 3、指定别名
+      var { name: _name, age: _age, info: _info = "详情" } = obj
+      console.log(_name, _age, _info)
+    </script>
+  </body>
+</html>

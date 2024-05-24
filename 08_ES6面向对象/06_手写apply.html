@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.my_apply = function (thisArg, args) {
+        const fn = this
+        thisArg._fn = fn
+        thisArg._fn(...args)
+      }
+
+      const obj = {
+        name: "coderqsh",
+        age: 18
+      }
+      function foo(name, age) {
+        console.log(this.name, this.age)
+      }
+      foo.my_apply(obj, ["qsh", 16])
+      foo.apply(obj, ["qsh", 16])
+    </script>
+  </body>
+</html>
