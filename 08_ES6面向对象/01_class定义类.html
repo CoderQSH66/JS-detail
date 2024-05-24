@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 定义类
+      class Person {
+        // 构造器
+        constructor(name, age, height) {
+          this.name = name
+          this.age = age
+          this.height = height
+        }
+        // 实例方法（添加到原型上）
+        running() {
+          console.log(this.name, "跑步~")
+        }
+        singing() {
+          console.log(this.name, "唱歌~")
+        }
+      }
+      // 创建实例对象
+      const s = new Person("student", 16, 1.88)
+      console.log(Person.prototype)
+      console.log(s)
+      console.log(s.__proto__ === Person.prototype) // true
+      console.log(Person.__proto__ === Function.prototype) // true
+    </script>
+  </body>
+</html>

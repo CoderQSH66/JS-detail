@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 定义类
+      class Person {
+        // 定义实例属性
+        name = "coderwhy"
+        age = 16
+        // 定义静态属性
+        static address = "深圳市"
+
+        // 定义实例方法
+        sayHi() {
+          console.log("hi")
+        }
+        // 定义静态方法
+        static say() {
+          console.log("say")
+        }
+      }
+      const p = new Person()
+      console.log(p)
+      console.log("%O", Person)
+      p.sayHi()
+      Person.say()
+    </script>
+  </body>
+</html>

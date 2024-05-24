@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 父类（超类）
+      class Person {
+        constructor(name, age) {
+          this.name = name
+          this.age = age
+        }
+        running() {
+          console.log("父类中的running方法")
+        }
+        static singing() {
+          console.log("父类中的singing方法（静态）")
+        }
+      }
+      // 子类
+      class Student extends Person {
+        constructor(name, age, score) {
+          super(name, age)
+          this.score = score
+        }
+      }
+      const student = new Student()
+      console.log(Student.prototype.__proto__ === Person.prototype)
+      console.log("%O", Person)
+      console.log("%O", Student)
+      student.running()
+      Student.singing()
+    </script>
+  </body>
+</html>

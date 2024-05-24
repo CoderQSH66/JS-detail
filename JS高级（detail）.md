@@ -338,29 +338,42 @@
 
 ![image-20240523215303504](./IMG_MD/image-20240523215303504.png)
 
+#### 6.8.原型图详解
 
+- **函数作为一个对象，它不仅有[[prototype]]隐式原型，还有prototype显式原型**
+- **<font color='red'>函数是由Function类创建</font>，所以函数的[[prototype]]隐式原型指向Function的prototype显式原型**
 
+- **<font color='red'>显示原型对象是由Object类创建</font>，所以它的隐式原型指向Object的prototype显式原型**
 
+- **<font color='red'>Object类是所有类的父类，Object类是由Function类创建</font>**
 
+![](./IMG_MD/image-20231125111901336.png)
 
+### 七.ES6面向对象
 
+#### 7.1.class定义类
 
+- **<font color='red'>class定义的类本质上与function定义的类一样，都是函数对象</font>**
+- **<font color='red'>所以它也有显式原型与隐式原型</font>**
+- **<font color='red'>类中定义的方法都在它的显式原型中</font>**
 
+<img src="./IMG_MD/image-20240524135626815.png" alt="image-20240524135626815" style="zoom:80%;" />
 
+#### 7.2.class类中定义访问器
 
+<img src="./IMG_MD/image-20240524145419780.png" alt="image-20240524145419780" style="zoom:80%;" />
 
+#### 7.3.类方法与类属性
 
+- **在类中<font color='red'>默认定义的属性或方法都是实例属性或实例方法</font>，只能被类的实例对象调用**
+- **通过<font color='red'>static关键字</font>定义的属性或方法被称为<font color='red'>类方法或类属性（静态）</font>**
+- **<font color='red'>类方法或类属性是直接添加到类的函数对象上，所以只能通过类来直接调用</font>**
 
+<img src="./IMG_MD/image-20240524152150057.png" alt="image-20240524152150057" style="zoom:80%;" />
 
+#### 7.4.extend实现继承
 
-
-
-
-
-
-
-
-
+<img src="./IMG_MD/image-20240524171503522.png" alt="image-20240524171503522" style="zoom:80%;" />
 
 
 
