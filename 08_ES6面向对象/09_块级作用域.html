@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      {
+        var message = "global message"
+        let age = 16
+        const height = 1.88
+        function foo() {
+          debugger
+          console.log(age)
+          console.log(height)
+        }
+      }
+      console.log(message) // 可以访问
+      foo() // 可以访问
+      console.log(age) // 报错
+      console.log(height) // 报错
+    </script>
+  </body>
+</html>

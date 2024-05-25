@@ -385,27 +385,61 @@
 
 ![image-20240524213508154](./IMG_MD/image-20240524213508154.png)
 
+#### 7.6.手写apply-call-bind
 
+- **<font color='red'>手写apply函数（call）</font>**
 
+<img src="./IMG_MD/image-20240525154648345.png" alt="image-20240525154648345" style="zoom:80%;" />
 
+- **<font color='red'>手写bind函数</font>**
 
+<img src="./IMG_MD/image-20240525161713256.png" alt="image-20240525161713256" style="zoom:80%;" />
 
+### 八.ES6代码执行的理解
 
+#### 8.1.JS代码执行的描述
 
+- **在执行全局代码前，会在堆内存中创建对应的<font color='red'>词法环境（Lexocal Environments）</font>**
 
+  - **词法环境由<font color='red'>环境记录</font>与<font color='red'>外部词法环境</font>组成**
 
+  - **<font color='red'>环境记录</font>：记录了词法环境中声明的变量、函数，相当于GO、AO对象**
+  - **<font color='red'>外部词法环境</font>：指向外部的词法环境，相当于作用域链scope chain**
 
+- **在执行上下文栈中创建对应的执行上下文**
 
+  - **关联了<font color='red'>词法环境（Lexocal Environments）</font><font color='red'>与变量环境（Varible Environments）</font>**
 
+  - **<font color='red'>词法环境：处理使用let、const声明的标识</font>**
+  - **<font color='red'>变量环境：处理使用var、function声明的标识</font>**
 
+- **执行上下文中的代码**
 
+![image-20240525171526567](./IMG_MD/image-20240525171526567.png)
 
+#### 8.2.let、const、var的区别
 
+- **<font color='red'>let、cosnt定义的变量标识不允许重复</font>**
 
+- **<font color='red'>let定义的变量可以重新赋值，const定义的变量不允许重新赋值</font>**
 
+- **<font color='red'>let、const定义的变量不会被添加到window上</font>，var定义的全局变量会被添加到window上**
 
+- **<font color='red'>let、cosnt定义的变量没有作用域提升</font>，并且会产生暂时性死区**
 
+#### 8.3.let、const的块级作用域
 
+- **ES6开始，通过<font color='red'>let、const、function、class声明的标识符</font>会形成自己的块级作用域**
 
+- **function实际上还是可以在<font color='red'>块级作用域后面访问</font>，这是浏览器的优化**
 
+- **<font color='red'>想要让代码块作用域生效，内部必须使用let、const声明变量</font>**
+
+<img src="./IMG_MD/image-20240525192149120.png" alt="image-20240525192149120" style="zoom:80%;" />
+
+- **<font color='red'>块级作用域使用场景</font>**
+
+<img src="./IMG_MD/image-20240525194444176.png" alt="image-20240525194444176" style="zoom:80%;" />
+
+![image-20240525194647867](./IMG_MD/image-20240525194647867.png)
 

@@ -7,21 +7,30 @@
   </head>
   <body>
     <script>
+      // 1、手写apply的实现
       Function.prototype.my_apply = function (thisArg, args) {
-        const fn = this
-        thisArg._fn = fn
+        // 判断thisArg类型：null，undefined指向window， 其他指向对应包装类
+        thisArg = thisArg == null ? window : Object(thisArg)
+
+        // 为thisArg增加一个_fn函数属性，值为this
+        Object.defineProperty(thisArg, "_fn", {
+          configurable: true,
+          enumerable: false,
+          value: this
+        })
+
+        // 调用thisArg._fn
         thisArg._fn(...args)
+
+        // 调用完成删除thisArg._fn
+        delete thisArg._fn
       }
 
-      const obj = {
-        name: "coderqsh",
-        age: 18
-      }
       function foo(name, age) {
         console.log(this.name, this.age)
       }
-      foo.my_apply(obj, ["qsh", 16])
-      foo.apply(obj, ["qsh", 16])
+      foo.my_apply({ name: "qsh", age: 16 }, ["qsh", 16])
+      foo.my_apply({}, ["qsh", 16])
     </script>
   </body>
 </html>
