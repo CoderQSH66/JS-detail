@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const addressKey = Symbol()
+      const infoKey = Symbol()
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        [addressKey]: "深圳",
+        [infoKey]: "前端工程师"
+      }
+      console.log(typeof addressKey)
+      console.log(obj)
+      console.log(Object.keys(obj))
+      for (const key in obj) {
+        console.log(key)
+      }
+      console.log(Object.getOwnPropertySymbols(obj))
+      console.log(obj[Object.getOwnPropertySymbols(obj)[0]])
+      console.log(obj[Object.getOwnPropertySymbols(obj)[1]])
+
+      // description
+      const obj2 = {
+        name: "coderqsh",
+        age: 16,
+        [Symbol("address")]: "深圳"
+      }
+      const s1 = Symbol.for("address")
+      const s2 = Symbol.for("address")
+      console.log(s1)
+      console.log(s2)
+      console.log(Object.getOwnPropertySymbols(obj2)[0])
+      console.log(s1 === s2) // true
+      console.log(Object.getOwnPropertySymbols(obj2)[0] === s1) // false
+    </script>
+  </body>
+</html>

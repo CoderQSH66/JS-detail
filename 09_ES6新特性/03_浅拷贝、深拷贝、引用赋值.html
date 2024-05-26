@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、浅拷贝的实现
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        firends: {
+          name: "qsh",
+          info: {
+            address: "深圳"
+          }
+        }
+      }
+      const newObj1 = {
+        ...obj
+      }
+      const newObj2 = Object.assign({}, obj)
+
+      // 2、深拷贝的实现
+      const newObj3 = JSON.parse(JSON.stringify(obj))
+      obj.firends.info.address = "广州"
+      console.log(newObj1) // 广州
+      console.log(newObj2) // 广州
+      console.log(newObj3) // 深圳
+    </script>
+  </body>
+</html>

@@ -443,3 +443,149 @@
 
 ![image-20240525194647867](./IMG_MD/image-20240525194647867.png)
 
+### 九.ES6新特性
+
+#### 9.1.模板字符串
+
+#### 9.2.函数缺省值
+
+- **在为函数指定形参时，可以为它<font color='red'>赋默认缺省值</font>**
+- **当不传参数或传入的参数为undefined时，该形参就会使用默认值<font color='red'>（只判断undefined不判断null）</font>**
+
+![image-20240526112835316](./IMG_MD/image-20240526112835316.png)
+
+#### 9.3.剩余参数
+
+#### 9.4.解构语法
+
+#### 9.5.展开运算符
+
+- **ES6之后可以通过<font color='red'>...展开运算符</font>将<font color='red'>数组、字符串</font>依次取出**
+- **对象只能在<font color='red'>创建字面量时</font>才能使用展开运算符**
+- **可以将展开后的数组当做函数参数传递<font color='red'>（对象除外，对象是不可迭代的）</font>**
+
+![image-20240526182219696](./IMG_MD/image-20240526182219696.png)
+
+#### 9.6.浅拷贝、深拷贝、引用赋值
+
+- **JS中数据类型分为<font color='red'>基本类型与引用类型</font>，浅拷贝、深拷贝主要是针对<font color='red'>引用类型</font>的数据**
+
+- **<font color='red'>引用赋值</font>：将一个对象的引用赋值给另一个变量，在堆中指向同一个对象**
+
+- **<font color='red'>浅拷贝</font>：创建出一个新对象，将源对象中的基本类型进行直接赋值、引用类型进行引用赋值**
+  - **展开运算符**
+  - **Object.assign({}, obj)**
+
+- **<font color='red'>深拷贝</font>：创建出一个新对象，复制源对象中所有内容，包括基本类型、引用类型嵌套**
+
+  - **JSON.prase(JSON.stringify(obj))**
+
+  - **手动实现**
+
+![image-20240526190437765](./IMG_MD/image-20240526190437765.png)
+
+#### 9.7.Symbol基本类型
+
+- **<font color='red'>Symbol</font>出现在ES6中，为了<font color='red'>解决对象中属性命名冲突</font>的问题**
+- **通过<font color='red'>Symbol()可以</font>生成一个独一无二的变量名**
+
+- **Symbol类型的值作为对象属性的key时，无法通过<font color='red'>Object.keys()、for...in</font>来遍历获取key**
+
+- **可以通过<font color='red'>Object.getOwnPropertySymbols()</font>获取所有Symbol类型的key**
+
+![image-20240526200253283](./IMG_MD/image-20240526200253283.png)
+
+- **通过Symbol()创建变量时，可以传入一个<font color='red'>description描述</font>当前Symbol类型的值**
+
+- **可以通过<font color='red'>Symbol.for(key)</font>传入相同的key，来生成相同的Symbol类型的值**
+
+![image-20240526200925370](./IMG_MD/image-20240526200925370.png)
+
+#### 9.8.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

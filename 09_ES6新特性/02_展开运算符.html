@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、展开数组
+      const names = ["cba", "nba", "abc"]
+      console.log(...names)
+
+      // 2、展开字符串
+      const str = "abc"
+      console.log(...str)
+
+      // 3、展开对象(只能用于构建对象字面量时展开)
+      const obj = {
+        name: "coderqsh",
+        age: 16
+      }
+      const newObj = {
+        ...obj,
+        address: "深圳"
+      }
+      console.log(newObj)
+    </script>
+  </body>
+</html>

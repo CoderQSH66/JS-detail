@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function foo(param = "默认值") {
+        // 1、三元运算符指定默认值
+        param = param ? param : "默认值1"
+
+        // 2、或运算符指定默认值
+        param = param || "默认值2"
+
+        // 3、双等于指定默认值（严谨）
+        param = param == null ? "默认值3" : param
+
+        // 4、??指定默认值（严谨）
+        param = param ?? "默认值4"
+        console.log(param)
+      }
+      foo(null)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const caclNum = (num) => {
+        if (num > 1_0000_0000) {
+          return (num / 1_0000_0000).toFixed(2) + "亿"
+        } else if (num > 10_0000) {
+          return (num / 1_0000).toFixed(2) + "万"
+        } else {
+          return num
+        }
+      }
+
+      console.log(caclNum(10000126521))
+      console.log(caclNum(846545450))
+    </script>
+  </body>
+</html>
