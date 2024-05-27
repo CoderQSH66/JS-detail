@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const info1 = { name: "coderqsh" }
+      const info2 = { age: 16 }
+      // 1、创建Map对象
+      const map = new Map()
+
+      // 2、添加数据（可以使用对象作为key）
+      map.set(info1, "coderqsh")
+      map.set(info2, 16)
+      map.set("height", 1.88)
+
+      // 3、获取数据
+      console.log(map.get(info1))
+      console.log(map.get(info2))
+      console.log(map.get("height"))
+
+      // 4、删除数据
+      map.delete(info1)
+
+      // 5、可迭代对象
+      for (const [key, value] of map) {
+        console.log(key, value)
+      }
+
+      console.log(map)
+    </script>
+  </body>
+</html>
