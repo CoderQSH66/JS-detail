@@ -501,7 +501,7 @@
 
 ![image-20240526200925370](./IMG_MD/image-20240526200925370.png)
 
-#### 9.8.Set类
+#### 9.8.Set集合类
 
 - **<font color='red'>Set对象是值的集合，可以存放任意类型的数据且是唯一不重复的</font>**
 - **<font color='red'>创建set对象只能通过Set构造函数的方式创建</font>**
@@ -510,17 +510,27 @@
 
 ![image-20240527180819420](./IMG_MD/image-20240527180819420.png)
 
-#### 9.9.
+#### 9.9.WeakSet弱集合类
 
+- **WeakSet的用法与Set用法一致，都是<font color='red'>创建一个集合类</font>**
+- **但是<font color='red'>WeakSet对象只能存放对象类型的数据</font>，且WeakSet对象<font color='red'>对于内部的对象都是弱引用</font>**
+- **<font color='red'>弱引用不可遍历</font>**
 
+#### 9.10.Map映射类
 
+- **<font color='red'>Map映射是以key-value形式存储数据的数据类型，与Object类似</font>**
+- **Map对象中的<font color='red'>key可以是任意类型</font>，包括对象类型**
 
+![image-20240527230137056](./IMG_MD/image-20240527230137056.png)
 
+#### 9.11.WeakMap弱映射类
 
+- **WeakMap的用法与Map一致，只不过<font color='red'>WeakMap对象的key只能为对象类型</font>**
+- **WeakMap对象中，对于<font color='red'>对象类型的key都是弱引用</font>**
 
+- **<font color='red'>弱引用不可遍历</font>**
 
-
-
+### 十.
 
 
 
