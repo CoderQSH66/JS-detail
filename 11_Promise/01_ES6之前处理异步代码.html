@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const executeCode = (counter, successCall, failtureCall) => {
+        if (!counter || counter < 0) {
+          failtureCall(counter)
+        } else {
+          setTimeout(() => {
+            for (let i = 0; i < 10; i++) {
+              counter += i
+            }
+            successCall(counter)
+          }, 1500)
+        }
+      }
+      executeCode(
+        10,
+        (value) => {
+          console.log("执行成功：", value)
+        },
+        (value) => {
+          console.log("执行失败：", value)
+        }
+      )
+    </script>
+  </body>
+</html>

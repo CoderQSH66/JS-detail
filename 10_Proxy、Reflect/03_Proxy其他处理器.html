@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        address: "深圳市"
+      }
+
+      const objProxy = new Proxy(obj, {
+        deleteProperty(target, key) {
+          console.log(`删除了${key}属性`)
+          delete target[key]
+        },
+        has(target, key) {
+          console.log(`判断了${key}属性时否in存在`)
+          return key in target
+        }
+      })
+
+      delete objProxy.name
+      Reflect.deleteProperty(objProxy, "age")
+      console.log("name" in objProxy)
+      console.log(Reflect.has(objProxy, "age"))
+    </script>
+  </body>
+</html>

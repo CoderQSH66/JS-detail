@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const promise = new Promise((reslove, reject) => {
+        // 1、待定状态
+        console.log(1)
+        console.log(2)
+        console.log(3)
+
+        // 2、reslove兑现状态
+        reslove()
+        reslove()
+        reslove()
+
+        // 3、reject拒绝状态
+        reject()
+      })
+      console.log(promise)
+      promise.catch((error) => {
+        console.log(error)
+      })
+    </script>
+  </body>
+</html>

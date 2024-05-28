@@ -564,8 +564,8 @@
 
 #### 11.1.defineProperty监听对象属性的变化
 
-- **通过<font color='red'>存取属性描述符</font>可以监听对象中属性的访问、赋值**
-- **缺点：只能用于监听属性的set、get，不能监听新增、删除等操作**
+- **通过<font color='red'>存取属性描述符</font>可以监听对象中属性的访问、修改操作**
+- **缺点：<font color='red'>只能用于监听属性的set、get</font>，不能监听新增、删除等操作**
 
 <img src="./IMG_MD/image-20240528175158778.png" alt="image-20240528175158778" style="zoom:80%;" />
 
@@ -577,43 +577,82 @@
 
 <img src="./IMG_MD/image-20240528181538016.png" alt="image-20240528181538016" style="zoom:80%;" />
 
-#### 11.3.
+#### 11.3.Proxy中其他的处理函数
 
+- **[Proxy其他的处理函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)**
 
+- **<font color='red'>handler.deleteProperty(target, key)</font>：删除对象中的属性时，回调的函数**
 
+- **<font color='red'>handler.has(target, key)</font>：通过in操作符判断属性是否存在时，回调的函数**
 
+![image-20240528201909778](./IMG_MD/image-20240528201909778.png)
 
+- **<font color='red'>handler.apply(target, thisArg, args)</font>：函数通过apply调用时，回调的函数**
+- **<font color='red'>handler.construct(target, args)</font>：函数通过new调用时，回调的函数**
 
+![image-20240528202809405](./IMG_MD/image-20240528202809405.png)
 
+#### 11.4.Reflect常用方法
 
+- **<font color='red'>Reflect.get(target, key, receiver)</font>：获取对象中某个key对应的value**
+- **<font color='red'>Reflect.set(target, key, value, receiver)</font>：为对象中某个key赋值**
+- **<font color='red'>Reflect.defineProperty(target, key, options)</font>：描述对象中的属性，与Object.defineProperty一样，只不过可以返回一个Boolean类型**
+- **<font color='red'>Reflect.deleteProperty(target, key)</font>：删除一个属性，返回一个Boolean类型**
 
+- **<font color='red'>Reflect.has(target, key)</font>：与Object中的in操作符一样**
+- **<font color='red'>Reflect.ownKeys(target)</font>：与Object.keys一样**
 
+- **[Reflect其他方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)**
 
+#### 11.5.Reflect应用
 
+- **Reflect通常与Proxy搭配使用，共同实现代理**
+- **Reflect中<font color='red'>receiver</font>参数的作用就是将<font color='red'>所操作对象中的this指向receiver</font>**
 
+![image-20240528211853064](./IMG_MD/image-20240528211853064.png)
 
+### 十二.Promise详解
 
+#### 12.1.异步代码存在的困境
 
+- **当JS执行异步代码时，我们需要知道代码执行的结果是成功还是失败，并且获取对应的结果**
+- **在ES6之前，都是通过<font color='red'>设计一个函数</font>，<font color='red'>在函数内部执行异步代码</font>，同时<font color='red'>传入成功与失败的回调函数</font>来返回不同的执行情况**
 
+- **缺点：设计复杂，没有对应的规范**
 
+![image-20240528220816192](./IMG_MD/image-20240528220816192.png)
 
+#### 12.2.Promise类的基本使用
 
+- **<font color='red'>Promise是一个类</font>，通过new创建Promise实例时，<font color='red'>需要传入一个回调函数</font>**
+- **这个回调函数会被立即执行（可以在该函数内写业务代码），并传入两个函数作为参数**
+  - **<font color='red'>resolve函数</font>：异步代码<font color='red'>执行成功时调用</font>该函数，promise对象会调用<font color='red'>then方法中的回调函数</font>**
+  - **<font color='red'>reject函数</font>：异步代码<font color='red'>执行失败时调用</font>该函数，promise对象会调用<font color='red'>catch方法中的回调函数</font>**
 
+![image-20240528223130574](./IMG_MD/image-20240528223130574.png)
 
+#### 12.3.Promise中的状态
 
+- **<font color='red'>待定状态（pending）</font>：没有调用reslove、reject函数，此时状态为待定状态**
+- **<font color='red'>已兑现（fulfilled）</font>：调用了reslove函数后，状态修改为已兑现**
+- **<font color='red'>已拒绝（rejected）</font>：调用了reject函数后，状态修改为已拒绝**
 
+- **<font color='red'>状态一旦被修改，就不可再变化</font>**
 
+![image-20240528230821395](./IMG_MD/image-20240528230821395.png)
 
+#### 12.4.reslove的值
 
+- **<font color='red'>普通值</font>：then方法中回调函数的参数接受该值**
+- **<font color='red'>Promise对象</font>：会<font color='red'>重新刷新当前Promise对象的状态</font>为<font color='red'>reslove中的Promise对象的状态</font>**
 
+<img src="./IMG_MD/image-20240528230107235.png" alt="image-20240528230107235"  />
 
+#### 12.5.then方法的返回值
 
+- 
 
-
-
-
-
-
+#### 12.6.catch方法的返回值
 
 
 

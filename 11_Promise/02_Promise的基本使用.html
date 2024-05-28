@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const executeCode = (counter) => {
+        return new Promise((reslove, reject) => {
+          if (!counter || counter < 0) {
+            // 执行失败，调用reject函数
+            reject()
+          } else {
+            setTimeout(() => {
+              for (let i = 0; i < 10; i++) {
+                counter += i
+              }
+              // 执行成功，调用reslove函数
+              reslove(counter)
+            }, 1500)
+          }
+        })
+      }
+      const promise = executeCode(10)
+      // 监听成功与失败
+      promise
+        .then((value) => {
+          console.log("执行成功：", value)
+        })
+        .catch((value) => {
+          console.log("执行失败", value)
+        })
+    </script>
+  </body>
+</html>

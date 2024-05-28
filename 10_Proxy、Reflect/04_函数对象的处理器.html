@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(...args) {
+        console.log(...args)
+      }
+
+      const personProxy = new Proxy(Person, {
+        apply(target, thisArg, args) {
+          console.log(`函数强制绑定了${thisArg}对象`)
+          return target.apply(thisArg, args)
+        },
+        construct(target, args) {
+          console.log(`函数构造器调用`)
+          return new target(...args)
+        }
+      })
+
+      new personProxy()
+      personProxy.apply("string", [1, 2, 3])
+    </script>
+  </body>
+</html>

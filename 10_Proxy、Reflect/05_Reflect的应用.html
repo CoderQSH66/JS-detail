@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "zhangsan",
+        age: 18,
+        set name(value) {
+          console.log("obj中的this：", this)
+        }
+      }
+      const proxy = new Proxy(obj, {
+        set(target, key, value, receiver) {
+          console.log(`为${key}属性重新赋值：${value}`)
+          const isSuccess = Reflect.set(target, key, value, receiver)
+          isSuccess && console.log("修改成功")
+        }
+      })
+      proxy.name = "coderqsh"
+    </script>
+  </body>
+</html>
