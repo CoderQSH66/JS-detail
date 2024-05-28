@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        // 定义公共属性、方法（实例属性、方法）
+        name = "coderqsh"
+        running() {
+          console.log(this.name, "在跑步")
+          this.#singing()
+        }
+
+        // 定义私有属性、方法
+        #address = "深圳"
+        #singing() {
+          console.log(this.name, "在", this.#address)
+        }
+
+        // 定义类属性、方法
+        static age = "16"
+        static sayHi() {
+          console.log(this.age)
+        }
+        // 静态代码块
+        static {
+          console.log(this.age)
+          console.log(this.name)
+        }
+      }
+      const p = new Person()
+      console.log("%O", Person)
+      p.running()
+      Person.sayHi()
+    </script>
+  </body>
+</html>

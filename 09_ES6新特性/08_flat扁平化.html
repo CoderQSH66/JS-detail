@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const names = ["nba", "cba", "abc", ["mba"]]
+      // 1、数组扁平化
+      const newNames = names.flat(2)
+      console.log(newNames) // ['nba', 'cba', 'abc', 'mba']
+
+      // 2、数组映射扁平化
+      const address = ["深圳.龙华", "北京.天安门", "上海.东方明珠"]
+      const newAddress = address.flatMap((item) => item.split("."))
+      // ['深圳', '龙华', '北京', '天安门', '上海', '东方明珠']
+      console.log(newAddress)
+      console.log(Array.prototype)
+    </script>
+  </body>
+</html>

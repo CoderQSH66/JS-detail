@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        address: "深圳市"
+      }
+
+      Object.keys(obj).forEach((key) => {
+        let _value = obj.key
+        Object.defineProperty(obj, key, {
+          get() {
+            console.log(`${key}被访问了`)
+            return _value
+          },
+          set(value) {
+            console.log(`${key}被赋值了`)
+            _value = value
+          }
+        })
+      })
+      console.log(obj.name)
+      console.log(obj.age)
+      obj.name = "qsh"
+      console.log(obj.name)
+    </script>
+  </body>
+</html>

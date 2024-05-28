@@ -251,6 +251,10 @@
 - **<font color='red'>Object.getProptypeOf(obj)</font>：获取对象的隐式原型对象**
 - **Object.setProptypeOf(obj, proto)：为对象设置隐式原型**
 - **Object.create(proto)：创建一个对象，并指定它的隐式原型对象**
+- **<font color='red'>Object.keys()：获取对象中所有的key</font>**
+- **<font color='red'>Object.values()：获取对象中所有的value</font>**
+- **<font color='red'>Object.entries()：获取对象中所有的[key, value]</font>**
+- **<font color='red'>Object.hasOwn(obj, "property")</font>：<font color='red'>判断对象中是否具有某个属性</font>，用来代替obj.hasOwnProperty()方法**
 - **<font color='red'>obj.hasOwnProperty(property)</font>：判断对象是否拥有该属性**
 - **<font color='red'>property in obj</font>：判断该属性是否存在对象或对象的原型上**
 - **<font color='red'>instance instanceof class</font>：判断对象是否为类的实例**
@@ -365,7 +369,6 @@
 
 #### 7.3.类方法与类属性
 
-- **在类中<font color='red'>默认定义的属性或方法都是实例属性或实例方法</font>，只能被类的实例对象调用**
 - **通过<font color='red'>static关键字</font>定义的属性或方法被称为<font color='red'>类方法或类属性（静态）</font>**
 - **<font color='red'>类方法或类属性是直接添加到类的函数对象上，所以只能通过类来直接调用</font>**
 
@@ -530,31 +533,51 @@
 
 - **<font color='red'>弱引用不可遍历</font>**
 
-### 十.
+### 十.ES7~ES13新特性
 
+#### 10.1.flat与flatMap
 
+- **<font color='red'>Array.prototype.flat(depth)</font>：<font color='red'>数组扁平化</font>，将数组按照指定的深度进行展开，最终返回一个新数组**
 
+- **<font color='red'>Array.prototype.flatMap(depth)</font>：<font color='red'>数组映射扁平化</font>，先将数组进行map映射，再将映射后的数组进行扁平化**
 
+<img src="./IMG_MD/image-20240528155123681.png" alt="image-20240528155123681" style="zoom:80%;" />
 
+#### 10.2.hasOwn与hasOwnProperty的区别
 
+- **<font color='red'>hasOwn</font>是Object的类方法，<font color='red'>hasOwnProperty</font>是Object类的显式原型上的方法**
+- **hasOwn是Object的类方法因此无需担心被重写，hasOwnProperty是原型上的方法可以被重写**
 
+#### 10.2.class中的成员
 
+- **<font color='red'>公共属性、方法（public）</font>：声明在构造函数外的<font color='red'>实例属性、方法</font>，所有实例对象都可以访问**
 
+- **<font color='red'>私有属性、方法（private）</font>：通过<font color='red'>#声明</font>的属性、方法，只能在类的内部访问**
 
+- **<font color='red'>静态属性、方法（static）</font>：通过<font color='red'>static关键字声明</font>的类属性、方法，只能通过类名访问**
 
+- **静态代码块（static）：通过static声明的代码块，在初始化实例前调用**
 
+<img src="./IMG_MD/image-20240528165921462.png" alt="image-20240528165921462" style="zoom:80%;" />
 
+### 十一.Proxy、Reflect
 
+#### 11.1.defineProperty监听对象属性的变化
 
+- **通过<font color='red'>存取属性描述符</font>可以监听对象中属性的访问、赋值**
+- **缺点：只能用于监听属性的set、get，不能监听新增、删除等操作**
 
+<img src="./IMG_MD/image-20240528175158778.png" alt="image-20240528175158778" style="zoom:80%;" />
 
+#### 11.2.Proxy类的基本使用
 
+- **<font color='red'>Proxy类</font>用于为对象创建代理对象，<font color='red'>只能通过new的方式创建</font>**
+- **<font color='red'>target</font>：需要代理的对象**
+- **<font color='red'>handler</font>：一个对象，其属性是定义了在对代理执行操作时的行为的函数**
 
+<img src="./IMG_MD/image-20240528181538016.png" alt="image-20240528181538016" style="zoom:80%;" />
 
-
-
-
-
+#### 11.3.
 
 
 
