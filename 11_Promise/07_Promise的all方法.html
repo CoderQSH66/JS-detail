@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const p1 = new Promise((reslove) => {
+        setTimeout(() => {
+          console.log("第一个promise状态变为fulfilled")
+          reslove("no.1")
+        }, 1000)
+      })
+      const p2 = new Promise((reslove) => {
+        setTimeout(() => {
+          console.log("第二个promise状态变为fulfilled")
+          reslove("no.2")
+        }, 2000)
+      })
+      const p3 = new Promise((reslove) => {
+        setTimeout(() => {
+          console.log("第三个promise状态变为fulfilled")
+          reslove(3)
+        }, 3000)
+      })
+
+      Promise.all(new Set([p1, p2, p3]))
+        .then((res) => {
+          console.log("全部变为fulfilled状态：", res)
+        })
+        .catch((error) => {
+          console.log("至少有一个变为rejected状态：", error)
+        })
+    </script>
+  </body>
+</html>

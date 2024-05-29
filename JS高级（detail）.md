@@ -641,7 +641,7 @@
 
 ![image-20240528230821395](./IMG_MD/image-20240528230821395.png)
 
-#### 12.4.reslove的值
+#### 12.4.reslove的参数值
 
 - **<font color='red'>普通值</font>：then方法中回调函数的参数接受该值**
 - **<font color='red'>Promise对象</font>：会<font color='red'>重新刷新当前Promise对象的状态</font>为<font color='red'>reslove中的Promise对象的状态</font>**
@@ -650,15 +650,50 @@
 
 #### 12.5.then方法的返回值
 
-- 
+- **Promise对象的<font color='red'>then方法会返回一个新的Promise对象</font>**
+- **这个新的Promise对象是<font color='red'>以上一次then方法中回调函数的返回值作为reslove决议结果</font>，相当于<font color='red'>Promise.reslove(res)</font>**
+
+![image-20240529162421924](./IMG_MD/image-20240529162421924.png)
 
 #### 12.6.catch方法的返回值
 
+- **catch方法与then方法一样都会<font color='red'>返回一个新的Promise对象</font>**
 
+- **这个新的Promise对象是<font color='red'>以上一次catch方法中回调函数的返回值作为reslove决议结果</font>**
 
+- **<font color='red'>catch只会捕获第一个异常或reject函数</font>**
 
+<img src="./IMG_MD/image-20240529165130160.png" alt="image-20240529165130160" style="zoom:80%;" />
 
+- **<font color='red'>Promise对象链式调用与他的状态有关，是兑现状态则会向下找then方法，是拒绝状态则会向下找第一个catch()方法</font>**
 
+<img src="./IMG_MD/image-20240529170144289.png" alt="image-20240529170144289" style="zoom:80%;" />
 
+#### 12.7.Promise的类方法
 
+##### 12.7.1.Promise.reslove()
 
+- **<font color='red'>Promise.reslove()</font>：返回一个<font color='red'>已兑现状态</font>的Promise对象**
+
+##### 12.7.2.Promise.reject()
+
+- **<font color='red'>Promise.reject()</font>：返回一个<font color='red'>已拒绝状态</font>的Promise对象**
+
+##### 12.7.3.Promise.all()
+
+- **<font color='red'>Promise.all()</font>：接收一个<font color='red'>Promise对象构成的可迭代对象</font>，返回一个Promise对象**
+
+  - **当<font color='red'>所有Promise对象的状态变为fulfilled时</font>，<font color='red'>返回的Promise对象才会变为fulfilled状态</font>，并将所有返回值组成列表作为reslove的决议结果**
+
+  - **当<font color='red'>有一个Promise对象的状态变为rejected时</font>，<font color='red'>返回的Promise对象就会变为rejected状态</font>，并将第一个变为rejected状态的Promise对象结果返回**
+
+- **<font color='red'>缺陷</font>：有一个rejected就无法获取其他Promise的结果**
+
+<img src="./IMG_MD/image-20240529180319768.png" alt="image-20240529180319768" style="zoom:80%;" />
+
+##### 12.7.4.Promise.allSettled()
+
+- **<font color='red'>Promise.allSettled()</font>：接收一个<font color='red'>Promise对象构成的可迭代对象</font>，返回一个Promise对象**
+
+- **当<font color='red'>所有的Promise对象的状态都被确定后</font>，返回的Promise对象就会变为<font color='red'>fulfilled已兑现状态</font>**
+- **并将所有的兑现结果、拒绝原因放进一个数组中，作为reslove决议结果**

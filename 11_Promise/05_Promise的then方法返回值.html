@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const promise1 = new Promise((reslove, reject) => {
+        reslove("第一次决议通过")
+      })
+
+      promise1
+        .then((res) => {
+          console.log("第一次调用then：", res)
+        })
+        .then((res) => {
+          console.log("第二次调用then：", res)
+          return "第三次的结果"
+        })
+        .then((res) => {
+          console.log("第三次调用then：", res)
+          return new Promise((reslove) => {
+            reslove("第四次的结果")
+          })
+        })
+        .then((res) => {
+          console.log(res)
+        })
+    </script>
+  </body>
+</html>
