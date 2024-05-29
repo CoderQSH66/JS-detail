@@ -681,19 +681,76 @@
 
 ##### 12.7.3.Promise.all()
 
-- **<font color='red'>Promise.all()</font>：接收一个<font color='red'>Promise对象构成的可迭代对象</font>，返回一个Promise对象**
-
-  - **当<font color='red'>所有Promise对象的状态变为fulfilled时</font>，<font color='red'>返回的Promise对象才会变为fulfilled状态</font>，并将所有返回值组成列表作为reslove的决议结果**
-
+- **<font color='red'>Promise.all()</font>：接收一个<font color='red'>由Promise对象构成的可迭代对象</font>，返回一个Promise对象**
+  - **当<font color='red'>所有Promise对象的状态都变为fulfilled时</font>，<font color='red'>返回的Promise对象才会变为fulfilled状态</font>，并将所有返回值组成的列表作为reslove的决议结果**
+  
   - **当<font color='red'>有一个Promise对象的状态变为rejected时</font>，<font color='red'>返回的Promise对象就会变为rejected状态</font>，并将第一个变为rejected状态的Promise对象结果返回**
-
+  
 - **<font color='red'>缺陷</font>：有一个rejected就无法获取其他Promise的结果**
 
 <img src="./IMG_MD/image-20240529180319768.png" alt="image-20240529180319768" style="zoom:80%;" />
 
 ##### 12.7.4.Promise.allSettled()
 
-- **<font color='red'>Promise.allSettled()</font>：接收一个<font color='red'>Promise对象构成的可迭代对象</font>，返回一个Promise对象**
+- **<font color='red'>Promise.allSettled()</font>：接收一个<font color='red'>由Promise对象构成的可迭代对象</font>，返回一个Promise对象**
 
 - **当<font color='red'>所有的Promise对象的状态都被确定后</font>，返回的Promise对象就会变为<font color='red'>fulfilled已兑现状态</font>**
-- **并将所有的兑现结果、拒绝原因放进一个数组中，作为reslove决议结果**
+- **并将所有的<font color='red'>兑现结果、拒绝原因</font>放进一个数组中，作为reslove决议结果**
+
+![image-20240529200149119](./IMG_MD/image-20240529200149119.png)
+
+##### 12.7.5.Promise.race()
+
+- **<font color='red'>Promise.race()</font>：接受一个<font color='red'>由Promise对象构成的可迭代对象</font>，返回一个Promise对象**
+- **返回的Pomise对象的状态<font color='red'>由第一个确定状态的Promise对象</font>决定**
+
+![image-20240529201855682](./IMG_MD/image-20240529201855682.png)
+
+##### 12.7.6.Promise.any()
+
+- **Promise.any()：接受一个<font color='red'>由Promise对象构成的可迭代对象</font>，返回一个Promise对象**
+
+- **当有一个Promise对象的状态为fulfilled，那么返回的Promise对象状态就为fulfilled**
+- **当所有的Promise对象的状态都为rejected，那么返回的Promise对象状态就为rejected（AggregateError: All promises were rejected）**
+
+### 十三.迭代器与生成器
+
+#### 13.1.迭代器（iterator）
+
+- **<font color='red'>迭代器（iterator）</font>：用于遍历访问容器元素的<font color='red'>对象</font>**
+
+- **迭代器必须满足以下标准**
+  - **<font color='red'>实现next()方法</font>**
+  - **next()方法<font color='red'>必须返回一个对象</font>**
+    - **<font color='red'>done（Boolean）</font>：迭代结束为true**
+    - **<font color='red'>value</font>：迭代结束为undefined**
+
+![image-20240529210402775](./IMG_MD/image-20240529210402775.png)
+
+#### 13.2.可迭代对象
+
+- **可迭代对象必须满足以下标准**
+  - **实现了一个<font color='red'>[Symbol.iterator]方法</font>**
+  - **该方法<font color='red'>返回该对象的迭代器</font>**
+- **对象在原型上也能访问[Symbol.iterator]函数，那么该对象也是可迭代对象**
+
+![image-20240529214002853](./IMG_MD/image-20240529214002853.png)
+
+#### 13.3.可迭代对象的应用场景
+
+- **<font color='red'>原生可迭代对象</font>：Array、String、NodeList、arguments、Set、Map、...**
+
+- **<font color='red'>用在JS语法中</font>：for...of...、展开运算符传参、yield***
+- **<font color='red'>应用到创建对象</font>：new Set(iterable)、new WeakSet(iterable)、new Map(iterable)、new WeakMap(iterable)**
+- **<font color='red'>应用到方法中</font>：Promise.all(iterable)、Promise.race(iterable)、Array.from(iterable)、...**
+
+#### 13.4.生成器（Generator）
+
+- **<font color='red'>生成器（Generator）</font>：用于<font color='red'>控制函数执行、暂停</font>的方案，生成器就是<font color='red'>特殊的迭代器</font>**
+- **<font color='red'>生成器函数</font>：使用<font color='red'>function*</font>声明的函数就被称为生成器函数，<font color='red'>返回一个生成器</font>**
+  - **生成器函数默认不执行内部代码，可以<font color='red'>使用next()来控制函数的执行</font>，每次执行<font color='red'>遇见yield关键字就暂停</font>**
+  - **生成器是特殊的迭代器，所以可以<font color='red'>使用next()方法返回每次迭代的值</font>**
+
+![image-20240529225739641](./IMG_MD/image-20240529225739641.png)
+
+#### 13.5.

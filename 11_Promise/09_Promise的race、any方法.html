@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const p1 = new Promise((reslove) => {
+      //   setTimeout(() => {
+      //     console.log("第一个promise状态变为fulfilled")
+      //     reslove("reslove1")
+      //   }, 2000)
+      // })
+      // const p2 = new Promise((_, reject) => {
+      //   setTimeout(() => {
+      //     console.log("第二个promise状态变为rejected")
+      //     reject("rejected1")
+      //   }, 1500)
+      // })
+      // const p3 = new Promise((reslove) => {
+      //   setTimeout(() => {
+      //     console.log("第三个promise状态变为fulfilled")
+      //     reslove("reslove2")
+      //   }, 3000)
+      // })
+      // Promise.race([p1, p2, p3])
+      //   .then((res) => {
+      //     console.log("第一个被确定的状态：", res)
+      //   })
+      //   .catch((error) => {
+      //     console.log("第一个被确定的状态：", error)
+      //   })
+
+      const p1 = new Promise((_, reject) => {
+        setTimeout(() => {
+          console.log("第一个promise状态变为rejected")
+          reject("rejected1")
+        }, 1500)
+      })
+      const p2 = new Promise((reslove, reject) => {
+        setTimeout(() => {
+          console.log("第二个promise状态变为fulfilled")
+          reject("fulfilled1")
+        }, 2000)
+      })
+      const p3 = new Promise((reslove, reject) => {
+        setTimeout(() => {
+          console.log("第三个promise状态变为fulfilled")
+          reject("fulfilled2")
+        }, 3000)
+      })
+      Promise.any([p1, p2, p3])
+        .then((res) => {
+          console.log("第一个被确定的fulfilled状态：", res)
+        })
+        .catch((error) => {
+          console.log("rejected状态：", error)
+        })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、定义生成器函数
+      function* generator() {
+        console.log(1)
+        console.log(2)
+        yield 1
+        console.log(3)
+        console.log(4)
+        yield 2
+      }
+      // 2、调用生成器函数，返回生成器对象
+      const g = generator()
+      // 3、执行函数代码
+      g.next()
+      g.next()
+    </script>
+  </body>
+</html>

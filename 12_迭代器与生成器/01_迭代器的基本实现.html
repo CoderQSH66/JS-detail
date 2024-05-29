@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 迭代器是一个对象，用来遍历容器中的元素
+       * 实现一个next()方法
+       * next()方法返回一个对象，该对象有两个属性：value和done
+       */
+      const names = ["nba", "cba", "mba"]
+      // let i = 0
+      // const iterator = {
+      //   next() {
+      //     if (i < names.length) {
+      //       return { done: false, value: names[i++] }
+      //     }
+      //     return { done: true }
+      //   }
+      // }
+      // console.log(iterator.next()) // {done: false, value: 'nba'}
+      // console.log(iterator.next()) // {done: false, value: 'nba'}
+      // console.log(iterator.next()) // {done: false, value: 'nba'}
+      // console.log(iterator.next()) // {done: true}
+      // console.log(iterator.next()) // {done: true}
+      function iteratorName(names) {
+        let i = 0
+        return {
+          next() {
+            if (i < names.length) {
+              return { done: false, value: names[i++] }
+            }
+            return { done: true }
+          }
+        }
+      }
+      const iterator = iteratorName(names)
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age, height, friends) {
+          this.name = name
+          this.age = age
+          this.height = height
+          this.friends = friends
+        }
+        [Symbol.iterator]() {
+          let index = 0
+          return {
+            next: () => {
+              if (index < this.friends.length) {
+                return {
+                  value: this.friends[index++],
+                  done: false
+                }
+              } else {
+                return {
+                  value: undefined,
+                  done: true
+                }
+              }
+            }
+          }
+        }
+      }
+      const james = new Person("james", 16, 1.88, ["curry", "kyrie", "durant"])
+      for (const item of james) {
+        console.log(item)
+      }
+    </script>
+  </body>
+</html>
