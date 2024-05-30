@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const p1 = new Promise((reslove, reject) => {
+        setTimeout(() => {
+          console.log("promise执行结束")
+          reslove("successful")
+        }, 1500)
+      })
+      const foo = async () => {
+        const res1 = await p1
+        return res1
+      }
+      foo()
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    </script>
+  </body>
+</html>

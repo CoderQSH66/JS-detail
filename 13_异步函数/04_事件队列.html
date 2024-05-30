@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>按钮</button>
+    <script>
+      const btnEle = document.body.querySelector("button")
+      console.log("代码1")
+
+      function bar() {
+        console.log("代码2")
+      }
+
+      setTimeout(() => {
+        console.log("浏览器中执行定时器")
+      }, 3000)
+
+      btnEle.addEventListener("click", () => {
+        console.log("浏览器中执行DOM监听")
+      })
+      bar()
+    </script>
+  </body>
+</html>

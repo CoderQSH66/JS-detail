@@ -730,7 +730,7 @@
 #### 13.2.可迭代对象
 
 - **可迭代对象必须满足以下标准**
-  - **实现了一个<font color='red'>[Symbol.iterator]方法</font>**
+  - **实现一个<font color='red'>[Symbol.iterator]方法</font>**
   - **该方法<font color='red'>返回该对象的迭代器</font>**
 - **对象在原型上也能访问[Symbol.iterator]函数，那么该对象也是可迭代对象**
 
@@ -740,7 +740,7 @@
 
 - **<font color='red'>原生可迭代对象</font>：Array、String、NodeList、arguments、Set、Map、...**
 
-- **<font color='red'>用在JS语法中</font>：for...of...、展开运算符传参、yield***
+- **<font color='red'>用在JS语法中</font>：for...of...、展开运算符传参、<font color='red'>yield*</font>**
 - **<font color='red'>应用到创建对象</font>：new Set(iterable)、new WeakSet(iterable)、new Map(iterable)、new WeakMap(iterable)**
 - **<font color='red'>应用到方法中</font>：Promise.all(iterable)、Promise.race(iterable)、Array.from(iterable)、...**
 
@@ -748,9 +748,74 @@
 
 - **<font color='red'>生成器（Generator）</font>：用于<font color='red'>控制函数执行、暂停</font>的方案，生成器就是<font color='red'>特殊的迭代器</font>**
 - **<font color='red'>生成器函数</font>：使用<font color='red'>function*</font>声明的函数就被称为生成器函数，<font color='red'>返回一个生成器</font>**
-  - **生成器函数默认不执行内部代码，可以<font color='red'>使用next()来控制函数的执行</font>，每次执行<font color='red'>遇见yield关键字就暂停</font>**
-  - **生成器是特殊的迭代器，所以可以<font color='red'>使用next()方法返回每次迭代的值</font>**
+  - **调用生成器函数默认不执行内部代码**
+  - **可以<font color='red'>使用next()来控制函数的执行</font>**
+  - **每次执行<font color='red'>遇见yield关键字就暂停</font>**
 
 ![image-20240529225739641](./IMG_MD/image-20240529225739641.png)
 
-#### 13.5.
+#### 13.5.生成器迭代的值
+
+- **因为<font color='red'>生成器是特殊的迭代器</font>，所以可以<font color='red'>通过next()方法获取每次迭代的值</font>**
+
+- **返回迭代对象中的<font color='red'>value</font>就是<font color='red'>yield关键字声明的值</font>**
+
+![image-20240530105008265](./IMG_MD/image-20240530105008265.png)
+
+#### 13.6.生成器替换迭代器
+
+<img src="./IMG_MD/image-20240530141222918.png" alt="image-20240530141222918" style="zoom:80%;" />
+
+#### 13.7.生成器实现可迭代对象
+
+<img src="./IMG_MD/image-20240530140456826.png" alt="image-20240530140456826" style="zoom:80%;" />
+
+### 十四.异步函数
+
+#### 14.1.async异步函数
+
+- **异步函数：使用<font color='red'>asnync关键字</font>声明的函数**
+
+- **异步函数会返回一个<font color='red'>fulfilled已兑现状态</font>的Promise对象**
+- **并将<font color='red'>该异步函数的返回值</font>作为Promise对象<font color='red'>reslove的决议结果</font>**
+
+<img src="./IMG_MD/image-20240530150923528.png" alt="image-20240530150923528" style="zoom:80%;" />
+
+- **异步函数在执行过程中，如果<font color='red'>出现了异常</font>，则会返回一个<font color='red'>rejected已拒绝状态</font>的Promise对象**
+
+<img src="./IMG_MD/image-20240530153711006.png" alt="image-20240530153711006" style="zoom:80%;" />
+
+#### 14.2.await关键字
+
+- **await关键字<font color='red'>只能在async异步函数中使用</font>，通常跟一个Promise对象**
+- **当Promise对象变为fulfilled状态时，会将reslove的结果返回，然后再向下执行代码**
+- **当Promise对象变为rejected状态时，会抛出一个异常**
+
+<img src="./IMG_MD/image-20240530160718375.png" alt="image-20240530160718375" style="zoom:80%;" />
+
+#### 14.3.JavaScript单线程
+
+- **<font color='red'>浏览器的运行是多线程的</font>**
+  - **浏览器每打开一个tab页面时，就会开启一个对应的进程**
+  - **每个进程中都有多个线程，其中包含运行<font color='red'>JavaScript代码的线程</font>**
+
+- **<font color='red'>JavaScript代码运行是单线程的</font>**
+
+- **<font color='red'>事件队列与事件循环</font>**
+
+  - **在执行上下文中执行<font color='red'>定时器、网络请求、DOM监听、then回调</font>等函数时，<font color='red'>会在浏览器中单独开一个线程</font>来执行它们**
+  - **然后<font color='red'>继续向下执行</font>JS线程中的代码**
+  - **当浏览器线程中的JS代码执行完成后，会<font color='red'>将它们的任务（回调函数）放进事件队列中</font>**
+  - **当全局执行上下文中的代码执行完后，就会<font color='red'>从事件队列中依次取出任务</font>进行执行**
+
+  ![image-20240530173107851](./IMG_MD/image-20240530173107851.png)
+
+#### 14.4.宏任务与微任务
+
+- **<font color='red'>事件循环中维护了两个事件队列</font>**
+  - **<font color='red'>宏任务队列（macrotask）</font>：Ajax、DOM监听、setTimeout、setInterval等**
+  - **<font color='red'>微任务队列（microtask）</font>：then回调函数、queueMicrotask()**
+
+- **<font color='red'>优先清空微任务队列</font>**
+
+<img src="./IMG_MD/image-20240530181021079.png" alt="image-20240530181021079" style="zoom:80%;" />

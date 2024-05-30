@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const getGenerator = function* () {
+        console.log("生成器函数内部代码1")
+        console.log("生成器函数内部代码2")
+
+        yield "第一次迭代返回的value"
+
+        console.log("生成器函数内部代码3")
+        console.log("生成器函数内部代码4")
+
+        yield "第二次迭代返回的value"
+
+        console.log("生成器函数内部代码5")
+      }
+      const generator = getGenerator()
+      console.log(generator.next()) // {value: '第一次迭代返回的value', done: false}
+      console.log(generator.next()) // {value: '第二次迭代返回的value', done: false}
+      console.log(generator.next()) // {value: undefined, done: true}
+    </script>
+  </body>
+</html>
