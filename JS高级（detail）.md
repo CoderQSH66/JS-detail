@@ -801,7 +801,7 @@
 
 - **<font color='red'>JavaScript代码运行是单线程的</font>**
 
-- **<font color='red'>事件队列与事件循环</font>**
+- **<font color='red'>事件循环与事件队列</font>**
 
   - **在执行上下文中执行<font color='red'>定时器、网络请求、DOM监听、then回调</font>等函数时，<font color='red'>会在浏览器中单独开一个线程</font>来执行它们**
   - **然后<font color='red'>继续向下执行</font>JS线程中的代码**
@@ -819,3 +819,10 @@
 - **<font color='red'>优先清空微任务队列</font>**
 
 <img src="./IMG_MD/image-20240530181021079.png" alt="image-20240530181021079" style="zoom:80%;" />
+
+#### 14.5.Promise代码执行顺序面试题
+
+![image-20231202184207600](./IMG_MD/image-20231202184207600.png)
+
+![image-20231202185438180](./IMG_MD/image-20231202185438180.png)
+
