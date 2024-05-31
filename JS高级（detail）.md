@@ -826,3 +826,67 @@
 
 ![image-20231202185438180](./IMG_MD/image-20231202185438180.png)
 
+### 十五.Storeage存储
+
+#### 15.1.localStorage
+
+- **<font color='red'>localStorage</font>：<font color='red'>本地持久存储</font>，除非主动删除数据否则一直存在**
+- **存储的数据在同一域下都是共享的**
+
+- **localStorage本质就是对字符串的读取，如果存储太多会消耗内存空间**
+- **localStorage无法直接存放对象数据（通常是通过序列化与反序列化）**
+
+#### 15.2.sessionStorage
+
+- **<font color='red'>sessionStorage</font>：<font color='red'>会话存储</font>，数据只存在当前会话中**
+
+- **一旦当前页面（会话）关闭，sessionStorage数据就会被清空**
+
+#### 15.3.封装storage工具
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
