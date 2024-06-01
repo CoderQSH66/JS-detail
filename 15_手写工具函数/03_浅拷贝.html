@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./js/_deepCopy.js"></script>
+    <script>
+      const info = {
+        name: "coderqsh",
+        age: 16,
+        msg: {
+          address: "深圳市",
+          desc: "前端工程师",
+          friends: ["james", "kyrie", "druant"]
+        },
+        set: new Set([1, 2, 3, 4, 5, new Set([6, 7])]),
+        running() {
+          console.log("跑步")
+        },
+        [Symbol("key1")]: "Symbol1"
+      }
+      info.self = info
+      const newInfo = _deepCopy(info)
+      info.name = "qsh"
+      info.msg.friends = { height: 1.88 }
+      info.set.delete(1)
+      info[Object.getOwnPropertySymbols(info)[0]] = "修改"
+      console.log(info.set.keys())
+      console.log(info)
+      console.log(newInfo)
+      console.log(new Set() instanceof Set)
+      console.log(info.running === newInfo.running)
+      console.log(info.set === newInfo.set)
+      console.log(Symbol(1) === Symbol(1))
+      console.log(info[Object.getOwnPropertySymbols(info)[0]])
+
+      const map = new Map()
+      const obj = {}
+      map.set(obj, obj)
+      obj.name = "coderqsh"
+      console.log(map.get(obj))
+    </script>
+  </body>
+</html>

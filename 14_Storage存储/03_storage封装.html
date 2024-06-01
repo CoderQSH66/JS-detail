@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class MyStorage {
+        constructor(type) {
+          this.storage = type === "local" ? localStorage : sessionStorage
+        }
+        // 添加缓存
+        set(key, value) {
+          if (!(value == null)) {
+            this.storage.setItem(key, JSON.stringify(value))
+          } else {
+            throw new Error("value类型错误")
+          }
+        }
+        // 获取缓存
+        get(key) {
+          return JSON.parse(this.storage.getItem(key))
+        }
+      }
+      const storage = new MyStorage("local")
+      storage.set("name", "coderqsh")
+      storage.set("info", { age: 16, address: "深圳" })
+      console.log(storage.get("info"))
+      storage.set("age", null)
+    </script>
+  </body>
+</html>

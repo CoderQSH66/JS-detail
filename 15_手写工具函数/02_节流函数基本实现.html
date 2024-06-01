@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="ipt" type="text" />
+    <button>取消</button>
+    <script src="./js/_throttle.js"></script>
+    <script>
+      const iptEle = document.body.querySelector(".ipt")
+      const btnEle = document.body.querySelector("button")
+
+      // 监听输入事件
+      const iptEventFn = QSHthrottle(
+        function (event) {
+          console.log(`输入了${this.value}`)
+          console.log(event)
+        },
+        1000,
+        { immediate: false, trailing: true }
+      )
+      iptEle.addEventListener("input", iptEventFn)
+
+      // 取消节流
+      // btnEle.onclick = iptEventFn.cancal
+    </script>
+  </body>
+</html>
