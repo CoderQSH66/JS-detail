@@ -4,7 +4,7 @@
 
 function debounce(fn, delay, immediate = false) {
   // 1、初始化定时器
-  let timer = null
+  let timer
 
   // 4、记录是否立即执行
   let invoke = false
@@ -18,7 +18,8 @@ function debounce(fn, delay, immediate = false) {
     }
 
     // 3、每次执行前，清除上一次的定时器
-    if (timer) clearTimeout(timer)
+    // if (timer) clearTimeout(timer)
+    clearTimeout(timer)
 
     // 2、延迟执行函数
     timer = setTimeout(() => {
