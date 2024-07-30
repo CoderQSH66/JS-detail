@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">
+      <input type="text" />
+      <button>取消</button>
+    </div>
+    <script src="./throttle.js"></script>
+    <script src="./deepCopy.js"></script>
+    <script>
+      const iptEle = document.body.querySelector("input")
+      const btnEle = document.body.querySelector("button")
+      const iptEventFn = throttle(
+        function (event) {
+          console.log(`输入了：${this.value}`)
+          console.log(event)
+        },
+        1000,
+        { immediate: false, trailing: true }
+      )
+      iptEle.addEventListener("input", iptEventFn)
+
+      btnEle.onclick = iptEventFn.cancel
+    </script>
+    <script>
+      const obj = {
+        name: "coderqsh",
+        age: 16,
+        frineds: ["kobe", "james", "curry"],
+        set: new Set([1, 2, 3, 4, 5])
+      }
+      obj.self = obj
+      console.log(deepCopy(obj))
+    </script>
+  </body>
+</html>

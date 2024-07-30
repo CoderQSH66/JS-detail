@@ -533,13 +533,13 @@
 
 - **<font color='red'>弱引用不可遍历</font>**
 
-### 十.ES7~ES13新特性
+### 十.ES7~ES13新特性 
 
 #### 10.1.flat与flatMap
 
 - **<font color='red'>Array.prototype.flat(depth)</font>：<font color='red'>数组扁平化</font>，将数组按照指定的深度进行展开，最终返回一个新数组**
 
-- **<font color='red'>Array.prototype.flatMap(depth)</font>：<font color='red'>数组映射扁平化</font>，先将数组进行map映射，再将映射后的数组进行扁平化**
+- **<font color='red'>Array.prototype.flatMap(fn)</font>：<font color='red'>数组映射扁平化</font>，先将数组进行map映射，再将映射后的数组进行扁平化**
 
 <img src="./IMG_MD/image-20240528155123681.png" alt="image-20240528155123681" style="zoom:80%;" />
 
@@ -914,3 +914,4 @@
 
 
 
+ 
