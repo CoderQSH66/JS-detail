@@ -795,16 +795,23 @@
 
 #### 14.3.JavaScript单线程
 
-- **<font color='red'>浏览器的运行是多线程的</font>**
-  - **浏览器每打开一个tab页面时，就会开启一个对应的进程**
-  - **每个进程中都有多个线程，其中包含运行<font color='red'>JavaScript代码的线程</font>**
+- **<font color='red'>浏览器是多进程多线程的</font>**
+  - **打开一个浏览器至少会打开三个进程**
+  - **浏览器进程、网络进程、<font color='red'>渲染进程</font>**
+  - **其中每打开一个tab页就会打开一个渲染进程**
 
 - **<font color='red'>JavaScript代码运行是单线程的</font>**
 
+  - **渲染进程主要就是负责解析执行HTML、JS、CSS等**
+
+  - **其中<font color='red'>JS线程</font>就是运行在<font color='red'>浏览器渲染主线程</font>中**
+
+  - **而浏览器渲染主线程只有一个，所以JS是单线程的**
+
 - **<font color='red'>事件循环与事件队列</font>**
 
-  - **在执行上下文中执行<font color='red'>定时器、网络请求、DOM监听、then回调</font>等函数时，<font color='red'>会在浏览器中单独开一个线程</font>来执行它们**
-  - **然后<font color='red'>继续向下执行</font>JS线程中的代码**
+  - **在渲染主线程中执行<font color='red'>定时器、网络请求、DOM监听、then回调</font>等任务时，<font color='red'>会将他们交给渲染进程中的其他线程</font>来执行**
+  - **然后<font color='red'>继续向下执行</font>渲染主线程（JS线程）中的任务**
   - **当浏览器线程中的JS代码执行完成后，会<font color='red'>将它们的任务（回调函数）放进事件队列中</font>**
   - **当全局执行上下文中的代码执行完后，就会<font color='red'>从事件队列中依次取出任务</font>进行执行**
 
