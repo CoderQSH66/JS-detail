@@ -80,9 +80,12 @@
 
 ####  2.1.浏览器渲染页面的流程
 
-- **<font color='red'>解析一：下载index.html文件，加载解析index.html文件，从而生成DOM树（doucument object model）</font>**
-- **<font color='red'>解析二：下载css、js文件，加载解析css文件时会通过样式规则生成CSSOM树（css object model），这个过程不阻塞DOM树的生成，加载解析js文件时会阻塞DOM树的生成</font>**
-- **<font color='red'>解析三：将CSSOM附加到DOM树上，从而生成Rander渲染树</font>**
+- **<font color='red'>解析一：下载解析HTML，从上到下将元素抽象为DOM节点，再根据元素的嵌套关系生成DOM树（doucument object model）</font>**
+- **<font color='red'>解析二：在解析HTML的过程中，遇见css则加载解析css、遇见js则执行js脚本</font>**
+  - **css的加载解析是交给渲染进程中的<font color='red'>预解析线程</font>font>处理（最终会根据样式规则生成CSSOM树），不会阻塞DOM树的生成**
+  - **js脚本的执行会阻塞整个DOM的生成，因为js脚本中可能存在其他DOM操作（为了避免回流、重绘）**
+
+- **<font color='red'>解析三：将CSSOM附加到DOM树上，样式计算后而生成Rander渲染树</font>**
   - **DOM树与Rander树不是一一对应关系，Rander树中只有需要渲染的节点，DOM树上是所有节点（display:none）**
   - **渲染树上存在节点样式信息，但是<font color='red'>不包括大小、位置信息</font>**
 - **<font color='red'>解析四：通过layout布局来计算需要渲染的节点大小、位置等布局信息</font>**
