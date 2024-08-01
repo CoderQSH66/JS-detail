@@ -82,7 +82,7 @@
 
 - **<font color='red'>解析一：下载解析HTML，从上到下将元素抽象为DOM节点，再根据元素的嵌套关系生成DOM树（doucument object model）</font>**
 - **<font color='red'>解析二：在解析HTML的过程中，遇见css则加载解析css、遇见js则执行js脚本</font>**
-  - **css的加载解析是交给渲染进程中的<font color='red'>预解析线程</font>font>处理（最终会根据样式规则生成CSSOM树），不会阻塞DOM树的生成**
+  - **css的加载解析是交给渲染进程中的<font color='red'>预解析线程</font>处理（最终会根据样式规则生成CSSOM树），不会阻塞DOM树的生成**
   - **js脚本的执行会阻塞整个DOM的生成，因为js脚本中可能存在其他DOM操作（为了避免回流、重绘）**
 
 - **<font color='red'>解析三：将CSSOM附加到DOM树上，样式计算后而生成Rander渲染树</font>**
