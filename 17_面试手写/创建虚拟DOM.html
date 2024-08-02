@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box" style="width: 200px; height: 300px">
+      <h2>这是一个h2</h2>
+      <span>这是一个span</span>
+      哈哈哈
+      <button>按钮</button>
+    </div>
+    <script>
+      const boxEle = document.body.querySelector(".box")
+      const createNode = (el) => {
+        const VNode = {}
+        // 1、判断是否为元素节点
+        if (el.nodeType === 1) {
+          // 2、获取标签名称
+          const tagName = el.nodeName
+          VNode.tagName = tagName
+
+          // 3、获取属性
+          const attrs = el.attributes
+          VNode.props = {}
+          if (attrs.length !== 0) {
+            ;[...attrs].forEach((item) => {
+              VNode.props[item.name] = item.value
+            })
+          }
+
+          // 4、获取子元素
+          const childrens = [...el.childNodes]
+          VNode.children = childrens.map((children) => {
+            return createNode(children)
+          })
+        } else {
+          VNode.text = el.textContent
+        }
+        return VNode
+      }
+      console.log(createNode(boxEle))
+    </script>
+  </body>
+</html>

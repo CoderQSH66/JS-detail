@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class depend {
+        constructor() {
+          this.fnList = []
+        }
+        // 收集依赖
+        depend(fn) {
+          !this.fnList.includes(fn) && this.fnList.push(fn)
+        }
+        // 通知依赖
+        notify() {
+          this.fnList.forEach((fn) => fn())
+        }
+      }
+      const weakMap = new WeakMap()
+      const getDep = (obj, key) => {
+        let objMap = weakMap.get(obj)
+        if (!objMap) {
+          objMap = new Map()
+          weakMap.set(obj, objMap)
+        }
+        let keyMap = objMap.get(key)
+        if (!keyMap) {
+          keyMap = new depend()
+          objMap.set(key, keyMap)
+        }
+        return keyMap
+      }
+
+      let depFn = null
+      const watchFn = (fn) => {
+        depFn = fn
+        fn()
+        depFn = null
+      }
+      const reactive = (obj) => {
+        return new Proxy(obj, {
+          get(target, key) {
+            getDep(target, key).depend(depFn)
+            return Reflect.get(target, key)
+          },
+          set(target, key, value) {
+            target[key] = value
+            getDep(target, key).notify()
+            Reflect.set(target, key, value)
+          }
+        })
+      }
+      const obj = reactive({
+        name: "coderqsh",
+        age: 16,
+        address: "深圳市"
+      })
+      watchFn(() => {
+        console.log(obj)
+      })
+      obj.name = "qsh"
+      obj.age = 26
+      obj.age = 26
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const p1 = new Promise((reslove) => {
+        setTimeout(() => {
+          reslove(1)
+        }, 1000)
+      })
+      const p2 = new Promise((reslove, reject) => {
+        setTimeout(() => {
+          reslove(2)
+        }, 2000)
+      })
+      const all = (promiseList) => {
+        let count = 0
+        const result = []
+        return new Promise((reslove, reject) => {
+          for (let i = 0; i < promiseList.length; i++) {
+            Promise.resolve(promiseList[i])
+              .then((res) => {
+                result[i] = res
+                if (++count === promiseList.length) {
+                  reslove(result)
+                }
+              })
+              .catch((err) => {
+                reject(err)
+              })
+          }
+        })
+      }
+      all([p1, p2])
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    </script>
+  </body>
+</html>
