@@ -1,0 +1,199 @@
+@import url("./iconfont.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.main {
+  display: flex;
+  height: 100%;
+}
+.left {
+  width: 26.6667vw;
+  background-color: antiquewhite;
+}
+.right {
+  flex: 1;
+}
+
+.container .item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .item .img {
+  width: 19vw;
+  height: 19vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.container .item .info {
+  padding: 2.6667vw;
+  width: 40vw;
+}
+.container .item .info .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.container .item .info .desc {
+  margin: 1.3333vw 0;
+  font-size: 13px;
+}
+.container .item .info .rate {
+  margin: 1.3333vw 0;
+  font-size: 10px;
+  color: rgb(122, 122, 122);
+}
+.container .item .info .operate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .item .info .operate .price {
+  color: orange;
+  font-weight: bold;
+}
+.container .item .info .operate .choose {
+  margin-right: 2.3333vw;
+}
+.container .item .info .operate .choose .icon-jian,
+.container .item .info .operate .choose span {
+  display: none;
+}
+.item.active .icon-jian,
+.item.active span {
+  display: inline-block !important;
+}
+.item.active span {
+  padding: 0 0.3333vw;
+}
+/* 底部tab */
+.tabbar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 13.3333vw;
+  background-color: rgb(39, 38, 38);
+}
+
+.tabbar .cart {
+  position: relative;
+  flex: 2;
+}
+.tabbar .total {
+  flex: 4;
+}
+.tabbar .pay {
+  flex: 3;
+}
+
+.tabbar .cart .outter {
+  position: absolute;
+  top: -30%;
+  left: 10%;
+  padding: 5px;
+  width: 13.3333vw;
+  height: 13.3333vw;
+  background-color: rgb(39, 38, 38);
+  border-radius: 50%;
+}
+.tabbar .cart .outter .inner {
+  position: relative;
+  padding-top: 1vw;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: skyblue;
+  color: aliceblue;
+  text-align: center;
+}
+.tabbar .cart .outter .inner .number {
+  display: none;
+  position: absolute;
+  top: -10%;
+  right: 5%;
+  width: 4vw;
+  height: 4vw;
+  background-color: red;
+  border-radius: 50%;
+  font-size: 3.0667vw;
+}
+.tabbar .cart.active .outter .inner .number {
+  display: block;
+}
+.tabbar .cart .outter.jump {
+  animation: debounce 0.5s;
+}
+@keyframes debounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.tabbar .total {
+  color: #b4b4b4;
+  font-size: 3.2667vw;
+}
+.tabbar .total .price {
+  font-size: 5.2667vw;
+  margin: 0.5333vw 0;
+}
+.tabbar .pay {
+  line-height: 13.3333vw;
+  font-size: 3.4667vw;
+  text-align: center;
+  color: #b4b4b4;
+}
+.tabbar .pay .p1 {
+  background-color: rgb(20, 20, 20);
+}
+.tabbar .pay .p2 {
+  display: none;
+  background-color: rgb(56, 168, 45);
+  color: #fff;
+  letter-spacing: 1vw;
+}
+.tabbar .pay.active .p1 {
+  display: none;
+}
+.tabbar .pay.active .p2 {
+  display: block !important;
+}
+
+.pwx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s linear;
+}
+
+.pwx .iconfont.icon-jia {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s cubic-bezier(0.5, -0.5, 1, 1);
+}
